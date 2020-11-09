@@ -64,9 +64,14 @@ Biblioteca para Linguagem Lua que implementa estruturas de dados mais utilizadas
       <ul>
         <li>Fila:new
           <ul>
-            <li>Descricao: Metodo cosntrutor que instancia o objeto Fila.</li>
+            <li>Descricao: Metodo construtor que instancia o objeto Fila.</li>
             <li>Argumentos: (Table) Atributos desejados para a Fila.</li>
             <li>Retorno: (Object) Fila instanciada.</li>
+            <li>
+              ```lua
+              local Fila = require("fila");
+              local nova_fila = Fila:new();
+              ```</li>
           </ul>
         </li>
         <li>Fila:push
