@@ -19,11 +19,11 @@ Biblioteca para Linguagem Lua que implementa estruturas de dados mais utilizadas
 <div>
   <h4>Arvore binaria</h4>
   <div>
-    <h5>Informacoes<h5>
+    <h5>Informacoes</h5>
     <div>
       <p>...</p>
     </div>
-    <h5>Metodos<h5>
+    <h5>Metodos</h5>
     <div>
       <p>...</p>
     </div>
@@ -31,11 +31,11 @@ Biblioteca para Linguagem Lua que implementa estruturas de dados mais utilizadas
 
   <h4>AVL</h4>
   <div>
-    <h5>Informacoes<h5>
+    <h5>Informacoes</h5>
     <div>
       <p>...</p>
     </div>
-    <h5>Metodos<h5>
+    <h5>Metodos</h5>
     <div>
       <p>...</p>
     </div>
@@ -43,11 +43,11 @@ Biblioteca para Linguagem Lua que implementa estruturas de dados mais utilizadas
 
   <h4>Fila de Prioridade (Heap)</h4>
   <div>
-    <h5>Informacoes<h5>
+    <h5>Informacoes</h5>
     <div>
       <p>...</p>
     </div>
-    <h5>Metodos<h5>
+    <h5>Metodos</h5>
     <div>
       <p>...</p>
     </div>
@@ -55,7 +55,7 @@ Biblioteca para Linguagem Lua que implementa estruturas de dados mais utilizadas
 
   <h4>Fila</h4>
   <div>
-    <h5>Informacoes<h5>
+    <h5>Informacoes</h5>
     <div>
       <p>Estrutura basica de fila. Estrutura que segue a logica FIFO(first in, first out).</p>
     </div>
