@@ -1,4 +1,4 @@
-<h1>Lua Data Structures<h1>
+<h1>Lua Data Structures</h1>
 Biblioteca para Linguagem Lua que implementa estruturas de dados mais utilizadas.
 
 <p>
@@ -61,8 +61,10 @@ Biblioteca para Linguagem Lua que implementa estruturas de dados mais utilizadas
     </div>
     <h5>Metodos</h5>
     <div>
-      <p>Fila:new(atributos): Metodo cosntrutor que instancia o objeto Fila. Argumentos: (Table) Atributos desejados para a Fila.Tem como retorno: (Object) Fila instanciada.</p>
-      <p>Fila:push(objeto): Metodo push que insere um objeto na Fila. Argumentos: (Object) Objeto desejados para incluir na Fila.</p>
+      <ul>
+        <li>Fila:new(atributos): Metodo cosntrutor que instancia o objeto Fila. Argumentos: (Table) Atributos desejados para a Fila.Tem como retorno: (Object) Fila instanciada.</li>
+        <li>Fila:push(objeto): Metodo push que insere um objeto na Fila. Argumentos: (Object) Objeto desejados para incluir na Fila.</li>
+      </ul> 
       <p>...</p>
     </div>
   </div>
