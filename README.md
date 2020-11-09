@@ -62,8 +62,19 @@ Biblioteca para Linguagem Lua que implementa estruturas de dados mais utilizadas
     <h5>Metodos</h5>
     <div>
       <ul>
-        <li>Fila:new(atributos): Metodo cosntrutor que instancia o objeto Fila. Argumentos: (Table) Atributos desejados para a Fila.Tem como retorno: (Object) Fila instanciada.</li>
-        <li>Fila:push(objeto): Metodo push que insere um objeto na Fila. Argumentos: (Object) Objeto desejados para incluir na Fila.</li>
+        <li>Fila:new
+          <ul>
+            <li>Descricao: Metodo cosntrutor que instancia o objeto Fila.</li>
+            <li>Argumentos: (Table) Atributos desejados para a Fila.</li>
+            <li>Retorno: (Object) Fila instanciada.</li>
+          </ul>
+        </li>
+        <li>Fila:push
+          <ul>
+            <li>Descricao: Metodo push que insere um objeto na Fila.</li>
+            <li>Argumentos: (Object) Objeto desejados para incluir na Fila.</li>
+          </ul>
+        </li>
       </ul> 
       <p>...</p>
     </div>
