@@ -69,6 +69,7 @@ Biblioteca para Linguagem Lua que implementa estruturas de dados mais utilizadas
             <li>Retorno: (Object) Fila instanciada.</li>
             <li><code>
               local Fila = require("fila");
+              
               local nova_fila = Fila:new();
             </code></li>
           </ul>
