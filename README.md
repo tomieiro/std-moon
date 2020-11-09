@@ -16,7 +16,6 @@ Biblioteca para Linguagem Lua que implementa estruturas de dados mais utilizadas
 <p></p>
 
 <h3>Documentacao</h3>
-<div>
   <h4>Arvore binaria</h4>
   <div>
     <h5>Informacoes</h5>
@@ -106,7 +105,7 @@ Biblioteca para Linguagem Lua que implementa estruturas de dados mais utilizadas
       <p>...</p>
     </div>
   </div>
-<h5>Exemplo</h5>
+Exemplo
 ```lua
   local Fila = require("fila");
   local nova_fila = Fila:new();
@@ -237,6 +236,5 @@ Biblioteca para Linguagem Lua que implementa estruturas de dados mais utilizadas
 ```
 <hr>
 
-</div>
 
 Este projeto está em desenvolvimento...
