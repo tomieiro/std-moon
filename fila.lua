@@ -1,4 +1,4 @@
---Definicao padrao dos atributos da fila
+--Definicao padrao dos atributos da Fila
 Fila = {itens = {}, tamanho = 0, _indexfirst = 1, _indexlast = 1};
 
 --Metodo cosntrutor que instancia o objeto Fila.
