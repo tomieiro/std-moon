@@ -59,7 +59,7 @@ Biblioteca para Linguagem Lua que implementa estruturas de dados mais utilizadas
     <div>
       <p>Estrutura basica de fila. Estrutura que segue a logica FIFO(first in, first out).</p>
     </div>
-    <h5>Metodos<h5>
+    <h5>Metodos</h5>
     <div>
       <p>Fila:new(atributos): Metodo cosntrutor que instancia o objeto Fila. Argumentos: (Table) Atributos desejados para a Fila.Tem como retorno: (Object) Fila instanciada.</p>
       <p>Fila:push(objeto): Metodo push que insere um objeto na Fila. Argumentos: (Object) Objeto desejados para incluir na Fila.</p>
@@ -69,11 +69,11 @@ Biblioteca para Linguagem Lua que implementa estruturas de dados mais utilizadas
 
   <h4>Grafo</h4>
   <div>
-    <h5>Informacoes<h5>
+    <h5>Informacoes</h5>
     <div>
       <p>...</p>
     </div>
-    <h5>Metodos<h5>
+    <h5>Metodos</h5>
     <div>
       <p>...</p>
     </div>
@@ -81,11 +81,11 @@ Biblioteca para Linguagem Lua que implementa estruturas de dados mais utilizadas
 
   <h4>Hash</h4>
   <div>
-    <h5>Informacoes<h5>
+    <h5>Informacoes</h5>
     <div>
       <p>...</p>
     </div>
-    <h5>Metodos<h5>
+    <h5>Metodos</h5>
     <div>
       <p>...</p>
     </div>
@@ -93,11 +93,11 @@ Biblioteca para Linguagem Lua que implementa estruturas de dados mais utilizadas
 
   <h4>Lista</h4>
   <div>
-    <h5>Informacoes<h5>
+    <h5>Informacoes</h5>
     <div>
       <p>...</p>
     </div>
-    <h5>Metodos<h5>
+    <h5>Metodos</h5>
     <div>
       <p>...</p>
     </div>
@@ -105,11 +105,11 @@ Biblioteca para Linguagem Lua que implementa estruturas de dados mais utilizadas
 
   <h4>Mapa</h4>
   <div>
-    <h5>Informacoes<h5>
+    <h5>Informacoes</h5>
     <div>
       <p>...</p>
     </div>
-    <h5>Metodos<h5>
+    <h5>Metodos</h5>
     <div>
       <p>...</p>
     </div>
@@ -117,11 +117,11 @@ Biblioteca para Linguagem Lua que implementa estruturas de dados mais utilizadas
 
   <h4>Matriz</h4>
   <div>
-    <h5>Informacoes<h5>
+    <h5>Informacoes</h5>
     <div>
       <p>...</p>
     </div>
-    <h5>Metodos<h5>
+    <h5>Metodos</h5>
     <div>
       <p>...</p>
     </div>
@@ -129,11 +129,11 @@ Biblioteca para Linguagem Lua que implementa estruturas de dados mais utilizadas
 
   <h4>Pilha</h4>
   <div>
-    <h5>Informacoes<h5>
+    <h5>Informacoes</h5>
     <div>
       <p>...</p>
     </div>
-    <h5>Metodos<h5>
+    <h5>Metodos</h5>
     <div>
       <p>...</p>
     </div>
@@ -141,11 +141,11 @@ Biblioteca para Linguagem Lua que implementa estruturas de dados mais utilizadas
 
   <h4>Vetor</h4>
   <div>
-    <h5>Informacoes<h5>
+    <h5>Informacoes</h5>
     <div>
       <p>...</p>
     </div>
-    <h5>Metodos<h5>
+    <h5>Metodos</h5>
     <div>
       <p>...</p>
     </div>
