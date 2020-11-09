@@ -28,6 +28,7 @@ Biblioteca para Linguagem Lua que implementa estruturas de dados mais utilizadas
   </div>
 </div>
 <h5>Exemplo</h5>
+
 ```lua
 require("Open");
 ```
@@ -45,6 +46,7 @@ require("Open");
   </div>
 </div>
 <h5>Exemplo</h5>
+
 ```lua
 require("Open");
 ```
@@ -62,6 +64,7 @@ require("Open");
   </div>
 </div>
 <h5>Exemplo</h5>
+
 ```lua
 require("Open");
 ```
@@ -105,7 +108,8 @@ require("Open");
     <p>...</p>
   </div>
 </div>
-Exemplo
+<h4>Exemplo</h4>
+
 ```lua
 local Fila = require("fila");
 local nova_fila = Fila:new();
@@ -129,6 +133,7 @@ nova_fila:free();
   </div>
 </div>
 <h5>Exemplo</h5>
+
 ```lua
 require("Open");
 ```
@@ -146,6 +151,7 @@ require("Open");
   </div>
 </div>
 <h5>Exemplo</h5>
+
 ```lua
 require("Open");
 ```
@@ -163,6 +169,7 @@ require("Open");
   </div>
 </div>
 <h5>Exemplo</h5>
+
 ```lua
 require("Open");
 ```
@@ -180,6 +187,7 @@ require("Open");
   </div>
 </div>
 <h5>Exemplo</h5>
+
 ```lua
 require("Open");
 ```
@@ -197,6 +205,7 @@ require("Open");
   </div>
 </div>
 <h5>Exemplo</h5>
+
 ```lua
 require("Open");
 ```
@@ -214,6 +223,7 @@ require("Open");
   </div>
 </div>
 <h5>Exemplo</h5>
+
 ```lua
 require("Open");
 ```
@@ -231,8 +241,11 @@ require("Open");
   </div>
 </div>
 <h5>Exemplo</h5>
-```
+
+```lua
+
 require("Open");
+
 ```
 <hr>
 
