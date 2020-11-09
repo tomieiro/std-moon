@@ -163,8 +163,11 @@ require("Open");
   </div>
 </div>
 <h5>Exemplo</h5>
+
 ```lua
+
 require("Open");
+
 ```
 <hr>
 
