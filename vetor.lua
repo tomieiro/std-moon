@@ -99,6 +99,9 @@ function Vetor:free()
     for i=1, #self.itens do
         self.itens[i] = nil;
     end
+    local aux = {__mode = "k"}
+    setmetatable(self.itens,aux);
+    setmetatable(self, aux);
     self = nil;
     collectgarbage();
 end

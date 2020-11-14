@@ -34,6 +34,9 @@ function Pilha:free()
     for i=self._indexfirst, self._indexlast do
         self.itens[i] = nil;
     end
+    local aux = {__mode = "k"}
+    setmetatable(self.itens,aux);
+    setmetatable(self, aux);
     self = nil;
     collectgarbage();
 end
