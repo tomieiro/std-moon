@@ -60,7 +60,7 @@ end
 --args: (Lista) Lista a ser adicionada.
 function Lista:extend(lista_base)
     local tam = lista_base:count();
-    for i=0, tam do
+    for i=1, tam do
         self:append(lista_base:pop(i));
     end
     return;
@@ -69,7 +69,7 @@ end
 --Funcao que remove todos os elementos de uma Lista.
 function Lista:clear()
     local tam = lista_base:count();
-    for i=0, self.tamanho do
+    for i=1, self.tamanho do
         self:pop(i);
     end
     return;
@@ -80,7 +80,7 @@ end
 --return: (Int) Índice correspondente. Quando não há um elemento, retorna -1;
 function Lista:index(elemento)
     local tam = lista_base:count();
-    for i=0, self.tamanho do
+    for i=1, self.tamanho do
         if(self.itens[i] == elemento)
             return i
         end
@@ -92,7 +92,7 @@ end
 --args: (Object) elemento a ser identificado na lista.
 function Lista:remove(elemento)
     local tam = lista_base:count();
-    for i=0, self.tamanho do
+    for i=1, self.tamanho do
         if(self.itens[i] == elemento)
             self:pop(i);
         end
@@ -104,11 +104,23 @@ end
 --args: (Object) elemento a ser identificado na lista.
 function Lista:copy()
     local l = self:new();
-    for i=0, self.tamanho do
+    for i=1, self.tamanho do
         l:append(self.itens[i]);
     end
     return l;
 end
+
+--Funcao que reverte a ordem dos elementos de uma lista.
+function Lista:reverse()
+    local l = self:copy();
+    for i=1, self.tamanho do
+        self.itens[i] = l.itens[self.tamanho-i];
+    end
+    l:free();
+    return;
+end
+
+
 
 --Metodo para liberar a Lista
 function Lista:free()
