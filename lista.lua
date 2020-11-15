@@ -86,6 +86,19 @@ function Lista:index(elemento)
     return -1;
 end
 
+--Funcao que remove o primeiro elemento com o valor especificado.
+--args: (Object) elemento a ser identificado na lista.
+function Lista:remove(elemento)
+    local tam = lista_base:count();
+    for i=0, self.tamanho do
+        if(self.itens[i] == elemento)
+            self:pop(i);
+        end
+    end
+    return;
+end
+
+
 --Metodo para liberar a Lista
 function Lista:free()
     for i=self._indexfirst, self._indexlast - 1 do
