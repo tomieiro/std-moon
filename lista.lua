@@ -47,6 +47,13 @@ function Lista:print()
     return;
 end
 
+--Funcao que retorna a quantidade de elementos na lista
+--return: (Int) Quantidade de elementos da lista.
+function Lista:count()
+    return self.tamanho;
+end
+
+
 
 
 return Lista;
