@@ -64,7 +64,14 @@ function Lista:extend(lista_base)
     return;
 end
 
-
+--Funcao que remove todos os elementos de uma Lista.
+function Lista:clear()
+    local tam = lista_base:count();
+    for i=0, self.tamanho do
+        self:pop(i);
+    end
+    return;
+end
 
 
 
