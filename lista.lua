@@ -30,6 +30,15 @@ function Lista:insert(objeto, i)
     return;
 end
 
+--Metodo pop que remove um objeto específico da Lista.
+--args: (Int) Índice da posição para remover da lista.
+--return: (Object) Objeto removida da Lista.
+function Lista:pop(i)
+    self.tamanho = self.tamanho - 1;
+    self._indexlast = self._indexlast - 1;
+    return table.remove(self.itens,i);
+end
+
 
 
 return Lista;
