@@ -20,6 +20,16 @@ function Lista:append(objeto)
     return;
 end
 
+--Metodo append que insere um objeto em uma posição específica da Lista.
+--args: (Object) Objeto desejados para incluir na Lista.
+--      (Int) Índice da posição para inserir na lista.
+function Lista:insert(objeto, i)
+    table.insert(self.itens,i,objeto);
+    self.tamanho = self.tamanho + 1;
+    self._indexlast = self._indexlast + 1;
+    return;
+end
+
 
 
 return Lista;
