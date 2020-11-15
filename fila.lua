@@ -26,7 +26,11 @@ end
 --return: (Object) Objeto removida da Fila.
 function Fila:pop()
     self._indexfirst = self._indexfirst + 1;
-    return table.remove(self.itens,self._indexfirst - 1);
+    local aux = self.itens[self._indexfirst - 1];
+    self.itens[self._indexfirst - 1] = nil;
+    self.tamanho = self.tamanho - 1;
+    collectgarbage();
+    return aux;
 end
 
 --Funcao que printa toda a lista
