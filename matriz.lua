@@ -1,13 +1,15 @@
 --Definicao padrao dos atributos da Fila
-Matriz = {m = {{}}, rows = 0,cols = 0, row_pos = 0, col_pos = 0};
+Matriz = {m = {{}}, rows = 0,cols = 0};
 
 --Metodo cosntrutor que instancia o objeto Matriz.
 --args: (Table) Atributos desejados para a Matriz.
 --return: (Object) Matriz instanciada.
-function Matriz:new(atributos)
+function Matriz:new(atributos, rows, cols)
     atributos = atributos or {};
     setmetatable(atributos, self);
     self.__index = self;
+    self.rows = rows;
+    self.cols = cols;
     return atributos;
 end
 
@@ -41,6 +43,31 @@ function Matriz:swap(first_row, first_col, second_row, second_col)
     aux = self.m[first_row][first_col];
     self.m[first_row][first_col] = self.m[second_row][second_col];
     self.m[second_row][second_col] = aux;
+
+    return
+end
+
+--Metodo retorna um item da Matriz 
+--args: Linha do item, coluna do item
+--return: (Object) item da Matriz da posicao requisitada
+function Matriz:getPos(row, col)
+
+    return self.m[rom][col];
+end
+
+--Metodo retorna um item da Matriz 
+--args: Linha do item, coluna do item
+--return: (Object) item da Matriz da posicao requisitada
+function Matriz:getPos(row, col)
+
+    return self.m[rom][col];
+end
+
+--Metodo Adiciiona um item na Matriz 
+--args: Linha do item, coluna do item
+function Matriz:setPos(item, row, col)
+
+    self.m[rom][col] = item;
 
     return
 end
