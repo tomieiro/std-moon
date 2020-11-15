@@ -82,5 +82,16 @@ function Lista:index()
     return;
 end
 
+--Metodo para liberar a Lista
+function Lista:free()
+    for i=self._indexfirst, self._indexlast - 1 do
+        self.itens[i] = nil;
+    end
+    local aux = {__mode = "k"}
+    setmetatable(self.itens,aux);
+    setmetatable(self, aux);
+    self = nil;
+    collectgarbage();
+end
 
 return Lista;
