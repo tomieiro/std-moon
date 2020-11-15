@@ -36,7 +36,9 @@ end
 function Lista:pop(i)
     self.tamanho = self.tamanho - 1;
     self._indexlast = self._indexlast - 1;
-    return table.remove(self.itens,i);
+    local aux = table.remove(self.itens,i);
+    collectgarbage();
+    return aux;
 end
 
 --Funcao que printa toda a lista
@@ -98,6 +100,15 @@ function Lista:remove(elemento)
     return;
 end
 
+--Funcao que retorna a cópia de uma lista.
+--args: (Object) elemento a ser identificado na lista.
+function Lista:copy()
+    local l = self:new();
+    for i=0, self.tamanho do
+        l:append(self.itens[i]);
+    end
+    return l;
+end
 
 --Metodo para liberar a Lista
 function Lista:free()
