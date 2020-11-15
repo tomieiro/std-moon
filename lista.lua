@@ -53,6 +53,18 @@ function Lista:count()
     return self.tamanho;
 end
 
+--Funcao que extende uma lista em outra. Concatena no fim.
+--Ou seja, adiciona a lista_base no fim da lista.
+--args: (Lista) Lista a ser adicionada.
+function Lista:extend(lista_base)
+    local tam = lista_base:count();
+    for i=0, tam do
+        self:append(lista_base:pop(i));
+    end
+    return;
+end
+
+
 
 
 
