@@ -74,12 +74,16 @@ function Lista:clear()
 end
 
 --Funcao que retorna o índice do primeiro elemento com o valor especificado.
-function Lista:index()
+--args: (Object) elemento a ser identificado na lista.
+--return: (Int) Índice correspondente. Quando não há um elemento, retorna -1;
+function Lista:index(elemento)
     local tam = lista_base:count();
     for i=0, self.tamanho do
-        self:pop(i);
+        if(self.itens[i] == elemento)
+            return i
+        end
     end
-    return;
+    return -1;
 end
 
 --Metodo para liberar a Lista
