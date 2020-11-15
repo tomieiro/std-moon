@@ -43,7 +43,7 @@ end
 
 --Funcao que printa toda a lista
 function Lista:print()
-    for i=self._indexfirst, self._indexlast - 1 do
+    for i=1, self.tamanho do
         print(self.itens[i]);
     end
     return;
@@ -120,7 +120,11 @@ function Lista:reverse()
     return;
 end
 
-
+--Funcao que ordena uma Lista.
+function Lista:sort()
+    table.sort(self.itens);
+    return;
+end
 
 --Metodo para liberar a Lista
 function Lista:free()
