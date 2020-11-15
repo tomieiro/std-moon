@@ -73,6 +73,14 @@ function Lista:clear()
     return;
 end
 
+--Funcao que retorna o índice do primeiro elemento com o valor especificado.
+function Lista:index()
+    local tam = lista_base:count();
+    for i=0, self.tamanho do
+        self:pop(i);
+    end
+    return;
+end
 
 
 return Lista;
