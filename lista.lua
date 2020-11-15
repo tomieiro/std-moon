@@ -11,5 +11,15 @@ function Lista:new(atributos)
     return atributos;
 end
 
+--Metodo append que insere um objeto no fim da Lista.
+--args: (Object) Objeto desejados para incluir na Lista.
+function Lista:append(objeto)
+    table.insert(self.itens,self._indexlast,objeto);
+    self.tamanho = self.tamanho + 1;
+    self._indexlast = self._indexlast + 1;
+    return;
+end
+
+
 
 return Lista;
