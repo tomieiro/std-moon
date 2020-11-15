@@ -68,8 +68,7 @@ end
 
 --Funcao que remove todos os elementos de uma Lista.
 function Lista:clear()
-    local tam = lista_base:count();
-    for i=1, self.tamanho do
+    for i=self.tamanho,1,-1 do
         self:pop(i);
     end
     return;
@@ -79,10 +78,9 @@ end
 --args: (Object) elemento a ser identificado na lista.
 --return: (Int) Índice correspondente. Quando não há um elemento, retorna -1;
 function Lista:index(elemento)
-    local tam = lista_base:count();
     for i=1, self.tamanho do
-        if(self.itens[i] == elemento)
-            return i
+        if(self.itens[i] == elemento) then
+            return i;
         end
     end
     return -1;
@@ -91,9 +89,8 @@ end
 --Funcao que remove o primeiro elemento com o valor especificado.
 --args: (Object) elemento a ser identificado na lista.
 function Lista:remove(elemento)
-    local tam = lista_base:count();
     for i=1, self.tamanho do
-        if(self.itens[i] == elemento)
+        if(self.itens[i] == elemento) then
             self:pop(i);
         end
     end
@@ -103,10 +100,9 @@ end
 --Funcao que retorna a cópia de uma lista.
 --args: (Object) elemento a ser identificado na lista.
 function Lista:copy()
-    local l = self:new();
-    for i=1, self.tamanho do
-        l:append(self.itens[i]);
-    end
+    local l = {};
+    setmetatable(l, {__index=Lista});
+    l.__index = l;
     return l;
 end
 
@@ -116,7 +112,7 @@ function Lista:reverse()
     for i=1, self.tamanho do
         self.itens[i] = l.itens[self.tamanho-i];
     end
-    l:free();
+    --l:free();
     return;
 end
 
