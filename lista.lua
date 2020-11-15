@@ -39,6 +39,14 @@ function Lista:pop(i)
     return table.remove(self.itens,i);
 end
 
+--Funcao que printa toda a lista
+function Lista:print()
+    for i=self._indexfirst, self._indexlast - 1 do
+        print(self.itens[i]);
+    end
+    return;
+end
+
 
 
 return Lista;
