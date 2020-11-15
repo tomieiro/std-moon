@@ -34,6 +34,17 @@ function Matriz:getCol(col)
     return col_obj;
 end
 
+--Metodo que troca um item da Matriz por outro
+--args: Linha do primeiro item, coluna do primeiro item, linha do segundo item, coluna do segundo
+function Matriz:swap(first_row, first_col, second_row, second_col)
+    
+    aux = self.m[first_row][first_col];
+    self.m[first_row][first_col] = self.m[second_row][second_col];
+    self.m[second_row][second_col] = aux;
+
+    return
+end
+
 --Metodo para liberar a Matriz
 function Matriz:free()
     for i= 0, self.rows do
