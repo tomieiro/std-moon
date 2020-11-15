@@ -29,9 +29,17 @@ function Fila:pop()
     return table.remove(self.itens,self._indexfirst - 1);
 end
 
+--Funcao que printa toda a lista
+function Fila:print()
+    for i=self._indexfirst, self._indexlast - 1 do
+        print(self.itens[i])
+    end
+    return;
+end
+
 --Metodo para liberar a Fila
 function Fila:free()
-    for i=self._indexfirst, self._indexlast do
+    for i=self._indexfirst, self._indexlast - 1 do
         self.itens[i] = nil;
     end
     local aux = {__mode = "k"}
