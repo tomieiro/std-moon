@@ -101,8 +101,9 @@ end
 --args: (Object) elemento a ser identificado na lista.
 function Lista:copy()
     local l = {};
-    setmetatable(l, {__index=Lista});
-    l.__index = l;
+    for i=1, self.tamanho do
+        l[i] = self.itens[i];
+    end
     return l;
 end
 
@@ -110,9 +111,8 @@ end
 function Lista:reverse()
     local l = self:copy();
     for i=1, self.tamanho do
-        self.itens[i] = l.itens[self.tamanho-i];
+        self.itens[i] = l[self.tamanho-i+1];
     end
-    --l:free();
     return;
 end
 
