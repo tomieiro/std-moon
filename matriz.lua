@@ -1,5 +1,5 @@
 --Definicao padrao dos atributos da Fila
-Matriz = {m = {{}}, rows = 0,cols = 0};
+Matriz = {m = {}, rows = 0,cols = 0};
 
 --Metodo cosntrutor que instancia o objeto Matriz.
 --args: (Table) Atributos desejados para a Matriz.
@@ -17,6 +17,11 @@ end
 --args: Linha desejada da Matriz
 --return: (Object) Linha da Matriz requisitada
 function Matriz:getLine(line)
+    
+    if line > self.rows or line < 1 then
+        error("Acesso indevido fora dos limites");
+    end
+    
     return self.m[line];
 end
 
@@ -25,9 +30,13 @@ end
 --return: (Object) Coluna da Matriz requisitada
 function Matriz:getCol(col)
     
+    if col > self.cols or col < 1 then
+        error("Acesso indevido fora dos limites");
+    end
+
     local col_obj = {};
     
-    for i = 0, self.rows do
+    for i = 1, self.rows do
         
         col_obj[i] = self.m[i][col];
 
@@ -40,7 +49,16 @@ end
 --args: Linha do primeiro item, coluna do primeiro item, linha do segundo item, coluna do segundo
 function Matriz:swap(first_row, first_col, second_row, second_col)
     
-    aux = self.m[first_row][first_col];
+    if(first_col > self.cols or second_col > self.cols or first_col < 1 or second_col < 1) then
+        error("Acesso indevido fora dos limites");
+    end
+
+    if(first_row > self.rows or second_row > self.rows or first_row < 1 or second_row < 1) then
+        error("Acesso indevido fora dos limites");
+    end
+
+
+    local aux = self.m[first_row][first_col];
     self.m[first_row][first_col] = self.m[second_row][second_col];
     self.m[second_row][second_col] = aux;
 
@@ -51,31 +69,37 @@ end
 --args: Linha do item, coluna do item
 --return: (Object) item da Matriz da posicao requisitada
 function Matriz:getPos(row, col)
+    
+    if col > self.cols or col < 1 then
+        error("Acesso indevido fora dos limites");
+    end
 
-    return self.m[rom][col];
+    if row > self.rows or row < 1 then
+        error("Acesso indevido fora dos limites");
+    end
+
+    return self.m[row][col];
 end
 
---Metodo retorna um item da Matriz 
---args: Linha do item, coluna do item
---return: (Object) item da Matriz da posicao requisitada
-function Matriz:getPos(row, col)
-
-    return self.m[rom][col];
-end
 
 --Metodo Adiciiona um item na Matriz 
 --args: Linha do item, coluna do item
 function Matriz:setPos(item, row, col)
 
-    self.m[rom][col] = item;
+    if col > self.cols or col < 1 or row > self.rows or row < 1 then
+        error("Acesso indevido fora dos limites");
+    end
+    
+    self.m[row] = self.m[row] or {};
+    self.m[row][col] = item;
 
     return
 end
 
 --Metodo para liberar a Matriz
 function Matriz:free()
-    for i= 0, self.rows do
-        for j=0,self.cols do
+    for i= 1, self.rows do
+        for j=1,self.cols do
             
             self.m[i][j] = nil;
 
