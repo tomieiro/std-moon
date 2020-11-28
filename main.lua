@@ -1,18 +1,16 @@
-local lib = require("fila_prioridade");
-function comp( obj_a, obj_b )
-    return obj_a > obj_b;
+local Lista = require("lista");
+
+lista = Lista:new();
+
+lista:append("ok");
+lista:append("PP");
+lista:append({loc="op",tto="o"});
+
+local b = {};
+b = lista:copy()
+lista:print();
+print()
+for i,j in pairs(b) do
+  print(j)
 end
-
-f_prioridade = Fila_Prioridade:new({},comp);
-
-for i=1, 4 do
-    for j=1, 4 do
-        f_prioridade.push(f_prioridade,((i * j *1.25 )));
-        print((i * j)*1.25);
-    end
-end
-
-print("ja ordenado:");
-f_prioridade:print();
-
-f_prioridade:free();
+lista:free();

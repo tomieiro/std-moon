@@ -9,7 +9,7 @@ function Fila_Prioridade:new(atributos, func)
     setmetatable(atributos, self);
     self.__index = self;
     if(type(func) ~= "function") then
-        error("Não é uma função.");
+        error("Segundo parametro não é uma função.");
     end
 
     self.comp_func = func;

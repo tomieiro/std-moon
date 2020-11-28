@@ -1,3 +1,18 @@
+--Funcao para copia de elementos
+function deep_copy(elem)
+    local aux;
+    if type(elem) == 'table' then
+      aux = {};
+      for i, j in next, elem, nil do
+          aux[deep_copy(i)] = deep_copy(j);
+      end
+      setmetatable(aux, deep_copy(getmetatable(elem)));
+    else
+      aux = elem;
+    end
+    return aux;
+end
+
 --Definicao padrao dos atributos da Lista
 Lista = {itens = {}, tamanho = 0, _indexfirst = 1, _indexlast = 1};
 
@@ -101,9 +116,7 @@ end
 --args: (Object) elemento a ser identificado na lista.
 function Lista:copy()
     local l = {};
-    for i=1, self.tamanho do
-        l[i] = self.itens[i];
-    end
+    l = deep_copy(self.itens);
     return l;
 end
 
