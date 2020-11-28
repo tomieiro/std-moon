@@ -1,15 +1,24 @@
 --Definicao padrao dos atributos da Fila_Prioridade
-Fila_Prioridade = {itens = {}, tamanho = 0, _indexfirst = 1, _indexlast = 1};
+Fila_Prioridade = {itens = {}, tamanho = 0, _indexfirst = 1, _indexlast = 1, comp_func = nil};
 
 --Metodo cosntrutor que instancia o objeto Fila_Prioridade.
---args: (Table) Atributos desejados para a Fila_Prioridade.
+--args: (Table) Atributos desejados para a Fila_Prioridade, (function) funcao de comparacao de objetos.
 --return: (Object) Fila_Prioridade instanciada.
-function Fila_Prioridade:new(atributos)
+function Fila_Prioridade:new(atributos, func)
     atributos = atributos or {};
     setmetatable(atributos, self);
     self.__index = self;
+    self.comp_func = func;
+
     return atributos;
-  end
+end
+
+function swap(indexA, indexB, fila_p)
+    local aux = fila_p.itens[indexA];
+    fila_p.itens[indexA] = fila_p.itens[indexB];
+    fila_p.itens[indexB] = aux;
+    return;
+end
 
 
 --Metodo push que insere um objeto na Fila_Prioridade.
@@ -18,6 +27,13 @@ function Fila_Prioridade:push(objeto)
     table.insert(self.itens,self._indexlast,objeto);
     self.tamanho = self.tamanho + 1;
     self._indexlast = self._indexlast + 1;
+
+    local temp_index = self._indexlast-1;
+    while (temp_index > 1 and  self.comp_func(self.itens[temp_index], self.itens[temp_index -1])) do
+        swap(temp_index -1, temp_index, self);
+        temp_index = temp_index - 1;
+    end
+
     return;
 end
 

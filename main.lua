@@ -1,17 +1,18 @@
-local lib = require("matriz");
+local lib = require("fila_prioridade");
+function comp( obj_a, obj_b )
+    return obj_a > obj_b;
+end
 
-mat =  Matriz:new( _ , 2, 2);
+f_prioridade = Fila_Prioridade:new( {},comp);
 
-
-for i=1, 2 do
-    for j=1, 2 do
-        mat:setPos(i*j,i, j);
-        print(mat:getPos(i,j));
+for i=1, 4 do
+    for j=1, 4 do
+        f_prioridade:push(((i * j *1.25 )));
+        print((i * j)*1.25);
     end
 end
 
-mat:swap(1,1,4,2);
-print(mat:getPos(1,1));
-print(mat:getPos(2,2));
+print("ja ordenado:");
+f_prioridade:print();
 
-mat:free();
+f_prioridade:free();
