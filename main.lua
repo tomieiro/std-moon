@@ -1,6 +1,6 @@
-local lib = require("matriz");
+local lib = require("mapa");
 
-mat =  Matriz:new( _ , 2, 2);
+mapa =  Matriz:new( );
 
 
 for i=1, 2 do

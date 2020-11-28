@@ -1,4 +1,4 @@
---Definicao padrao dos atributos da Fila
+--Definicao padrao dos atributos da Matriz
 Matriz = {m = {}, rows = 0,cols = 0};
 
 --Metodo cosntrutor que instancia o objeto Matriz.
@@ -113,4 +113,4 @@ function Matriz:free()
 end
 
 
-return Fila;
+return Matriz;
