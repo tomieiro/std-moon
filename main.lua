@@ -10,7 +10,7 @@ for i=1, 2 do
     end
 end
 
-mat:swap(1,4,4,2);
+mat:swap(1,1,4,2);
 print(mat:getPos(1,1));
 print(mat:getPos(2,2));
 
