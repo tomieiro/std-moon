@@ -46,6 +46,18 @@ function TabelaHash:insert(key)
     return;
 end
 
+--Funcao que remove o elemento com o valor especificado.
+--args: (Object) elemento a ser identificado na tabela hash.
+function TabelaHash:remove(key)
+    local pos = hash_search(self.tabela, key, self.m);
+    if(pos < 0) then
+        return pos;
+    end
+    self.tabela[pos] = nil;
+    self.tamanho = self.tamanho - 1;
+    return;
+end
+
 
 
 return Lista;
