@@ -17,7 +17,34 @@ function TabelaHash:new(atributos)
     return atributos;
 end
 
-
+--Metodo append que insere um objeto do tipo inteiro na TabelaHash.
+--args: (Object) Objeto desejado para incluir na TabelaHash.
+function TabelaHash:insert(key)
+    if type(key) ~= "number" then
+        error("Argumento nao é um numero");
+        return;
+    end
+    --if(key < 0) then
+        --error("Argumento nao é um numero inteiro positivo");
+        --return;
+    --end
+    local A = (math.sqrt(5)-1)/2.0;
+    local pos;
+    local k = -1;
+    repeat
+		k = k + 1;
+		--pos = hash_division(key, m, k);
+        pos = hash_multi(key, A, self.m, k);
+        local aux = self.tabela[pos];
+        if (aux ~= nil) then
+            print("Colisão ", self.tabela[pos]);
+        end
+    until(aux ~= nil)
+    print(pos)
+    table.insert(self.tabela, pos, key);
+    self.tamanho = self.tamanho + 1;
+    return;
+end
 
 
 
