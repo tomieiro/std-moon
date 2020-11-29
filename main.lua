@@ -1,16 +1,13 @@
-local Lista = require("lista");
+local lib = require("hash");
 
-lista = Lista:new();
+local aux = TabelaHash:new();
 
-lista:append("ok");
-lista:append("PP");
-lista:append({loc="op",tto="o"});
+aux:insert(1);
+aux:insert(3);
+aux:insert(4);
+aux:insert(984);
+aux:insert(123);
 
-local b = {};
-b = lista:copy()
-lista:print();
-print()
-for i,j in pairs(b) do
-  print(j)
-end
-lista:free();
+aux:print();
+
+aux:free();
