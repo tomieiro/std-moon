@@ -66,6 +66,16 @@ function TabelaHash:clear()
     return;
 end
 
+--Funcao que printa toda a hash
+function TabelaHash:print()
+    for i=1, self.m do
+        if self.itens[i] ~= nil then
+            print(i, self.itens[i]);
+        end
+    end
+    return;
+end
+
 
 
 return Lista;
