@@ -58,6 +58,14 @@ function TabelaHash:remove(key)
     return;
 end
 
+--Funcao que remove todos os elementos de uma tabela hash.
+function TabelaHash:clear()
+    for i=self.tamanho,1,-1 do
+        self:pop(i);
+    end
+    return;
+end
+
 
 
 return Lista;
