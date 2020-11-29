@@ -1,3 +1,29 @@
+function hash_multi(key, a, m, k)
+    local val = (key+(k*k))*a;
+	val = val - math.floor(val);
+	return math.floor(val*m);
+end
+
+function hash_search(t, key, m)
+	local a = (math.sqrt(5)-1)/2.0;
+	local pos, k = -1;
+	repeat
+		k = k + 1;
+		pos = hash_multi(key, a, m, k);
+        if (k >= m or t[pos] == nil) then
+            break;
+        end
+        if (t[pos] ~= key) then
+            print("Colisao ", t[pos]);
+        end
+    until (t[pos] ~= key);
+    if(t[pos] == key) then 
+        return pos;
+    else 
+        return -1;
+    end
+end
+
 --Definicao padrao dos atributos da Tabela Hash
 TabelaHash = {tabela = {}, m = 0, tamanho = 0, _indexfirst = 1, _indexlast = 1};
 
