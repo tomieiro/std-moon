@@ -6,8 +6,6 @@
 
 - Click no botão de fork para fazer uma cópia do projeto em seu github. Após isso clone o repositório e trabalhe em uma solução dentro de uma branch. Depois basta fazer um pull request para avaliarmos e adicionar a resolução. 
 
-- Tutorial sobre Open Source: https://www.youtube.com/watch?v=bQnZ4QTje7g&list=PLhdDER4nVdoEByYk6wLd-UBC0h3kh81SI
-
 ## Pull Requests (PRs)
 
 - PR serão avaliados no máxima em uma semana.
