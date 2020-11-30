@@ -233,10 +233,84 @@ require("Open");
 <div>
   <h5>Informacoes</h5>
   <div>
-    <p>...</p>
+    <p>Estrutura basica de fila. Estrutura que segue a logica FIFO(first in, first out).</p>
   </div>
   <h5>Metodos</h5>
   <div>
+    <ul>
+      <li>Vetor:new(args)
+        <ul>
+          <li>Descricao: Metodo construtor que instancia o objeto Vetor.</li>
+          <li>Argumentos: (Table) Atributos desejados para o Vetor.</li>
+          <li>Retorno: (Object) Vetor instanciado.</li>
+        </ul>
+      </li>
+      <li>Vetor:insert(objeto)
+        <ul>
+          <li>Descricao: Metodo insert que insere um objeto no Vetor.</li>
+          <li>Argumentos: (Object) Objeto desejados para incluir no Vetor.</li>
+        </ul>
+      </li>
+      <li>Vetor:at(index)
+        <ul>
+          <li>Descricao: Metodo at que acessa um objeto do Vetor.</li>
+          <li>Argumentos: (Int) Indice qual se deseja acessar</li>
+          <li>Retorno: (Object) Objeto acessado do Vetor.</li>
+        </ul>
+      </li>
+      <li>Vetor:front()
+        <ul>
+          <li>Descricao: Metodo front que acessa o primeiro objeto do Vetor.</li>
+          <li>Retorno: (Object) Objeto da primeira posicao do Vetor.</li>
+        </ul>
+      </li>
+      <li>Vetor:back()
+        <ul>
+          <li>Descricao: Metodo back que acessao ultimo objeto do Vetor.</li>
+          <li>Retorno: (Object) Objeto da ultima posicao do Vetor.</li>
+        </ul>
+      </li>
+      <li>Vetor:begin()
+        <ul>
+          <li>Descricao: Metodo begin que seta o iterador para o primeira posicao do Vetor.</li>
+        </ul>
+      </li>
+      <li>Vetor:finale()
+        <ul>
+          <li>Descricao: Metodo finale que seta o iterador para a ultima posicao do Vetor.</li>
+        </ul>
+      </li>
+      <li>Vetor:setIt(index)
+        <ul>
+          <li>Metodo setIt que seta o iterador para uma posicao arbitraria do Vetor.</li>
+          <li>Argumentos: (Int) Indice qual se deseja setar o iterador.</li>
+        </ul>
+      </li>
+      <li>Vetor:after()
+        <ul>
+          <li>Descricao: Metodo after que busca o proximo elemento do vetor baseando-se no iterador.</li>
+          <li>Retorno: (Object) Objeto da posicao iterada.</li>
+        </ul>
+      </li>
+      <li>Vetor:before()
+        <ul>
+          <li>Descricao: Metodo before que busca o elemento anterior do vetor baseando-se no iterador.</li>
+          <li>Retorno: (Object) Objeto da posicao iterada.</li>
+        </ul>
+      </li>
+      <li>Vetor:swap(vetor_base)
+        <ul>
+          <li>Descricao: Metodo swap que troca todo conteudo do Vetor pelo conteudo de outro Vetor.</li>
+          <li>Argumentos: (Vetor) Vetor base para o swap</li>
+          <li>Retorno: (Int) Numero de posicoes copiadas</li>
+        </ul>
+      </li>
+      <li>Vetor:free()
+        <ul>
+          <li>Descricao: Metodo para liberar o Vetor.</li>
+        </ul>
+      </li>
+    </ul> 
     <p>...</p>
   </div>
 </div>
@@ -244,7 +318,13 @@ require("Open");
 
 ```lua
 
-require("Open");
+local Vetor = require("vetor");
+local aux = Vetor:new();
+aux:insert("test");
+aux:insert(17);
+aux:insert(true);
+print(aux:at(1));
+
 
 ```
 <hr>
