@@ -233,7 +233,7 @@ require("Open");
 <div>
   <h5>Informacoes</h5>
   <div>
-    <p>Estrutura basica de fila. Estrutura que segue a logica FIFO(first in, first out).</p>
+    <p>Estrutura basica de Vetor. Segue metodos tradicionais.</p>
   </div>
   <h5>Metodos</h5>
   <div>
