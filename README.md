@@ -111,14 +111,19 @@ require("Open");
 <h4>Exemplo</h4>
 
 ```lua
+
 local Fila = require("fila");
 local nova_fila = Fila:new();
+
 nova_fila:push("Primeiro_Elemento");
 nova_fila:push("Segundo_Elemento");
+
 local elemento_extraido = nova_fila:pop();
 print(elemento_extraido);
+
 nova_fila:free();
 nova_fila = nil;
+
 ```
 <hr>
 
