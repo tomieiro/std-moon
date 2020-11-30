@@ -118,6 +118,7 @@ nova_fila:push("Segundo_Elemento");
 local elemento_extraido = nova_fila:pop();
 print(elemento_extraido);
 nova_fila:free();
+nova_fila = nil;
 ```
 <hr>
 
