@@ -4,7 +4,7 @@ Biblioteca para Linguagem Lua que implementa estruturas de dados mais utilizadas
 <p>
   <img src="https://www.andreas-rozek.de/Lua/Lua-Logo_32x32.png" alt="lua_logo"/ align=center>  Lua: https://www.lua.org/
 </p>
-  
+
 
 <h3>Motivacao</h3>
 <p></p>
@@ -104,7 +104,7 @@ require("Open");
           <li>Descricao: Metodo para liberar a Fila.</li>
         </ul>
       </li>
-    </ul> 
+    </ul>
     <p>...</p>
   </div>
 </div>
@@ -258,6 +258,12 @@ require("Open");
           <li>Retorno: (Object) Objeto acessado do Vetor.</li>
         </ul>
       </li>
+      <li>Vetor:tam()
+        <ul>
+          <li>Descricao: Metodo que retorna o tamanho do Vetor.</li>
+          <li>Retorno: (Int)Tamanho do Vetor.</li>
+        </ul>
+      </li>
       <li>Vetor:front()
         <ul>
           <li>Descricao: Metodo front que acessa o primeiro objeto do Vetor.</li>
@@ -310,7 +316,7 @@ require("Open");
           <li>Descricao: Metodo para liberar o Vetor.</li>
         </ul>
       </li>
-    </ul> 
+    </ul>
     <p>...</p>
   </div>
 </div>
@@ -320,11 +326,32 @@ require("Open");
 
 local Vetor = require("vetor");
 local aux = Vetor:new();
+
 aux:insert("test");
 aux:insert(17);
 aux:insert(true);
-print(aux:at(1));
+aux:insert("fim");
 
+print("Item na posicao 1 do vetor: " .. aux:at(1)); --> Item na posicao 1 do vetor: test
+print("Inicio do vetor: " .. aux:front()); --> Inicio do vetor: test
+print("Final do vetor: " .. aux:back()) --> Final do vetor: fim
+
+--Para printar a lista:
+aux:begin()
+for i=1, aux:tam() do
+  print(aux:after()) -->test 17 true fim
+end
+
+aux:swap({1, "trocado", 124, false});
+
+--Para printar a lista:
+aux:finale()
+for i=1, aux:tam() do
+  print(aux:before()) -->false 124 trocado 1
+end
+
+aux:free();
+aux = nil;
 
 ```
 <hr>

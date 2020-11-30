@@ -1,13 +1,28 @@
-local lib = require("hash");
+local Vetor = require("vetor");
+local aux = Vetor:new();
 
-local aux = TabelaHash:new();
+aux:insert("test");
+aux:insert(17);
+aux:insert(true);
+aux:insert("fim");
 
-aux:insert(1);
-aux:insert(3);
-aux:insert(4);
-aux:insert(984);
-aux:insert(123);
+print("Item na posicao 1 do vetor: " .. aux:at(1)); --> Item na posicao 1 do vetor: test
+print("Inicio do vetor: " .. aux:front()); --> Inicio do vetor: test
+print("Final do vetor: " .. aux:back()) --> Final do vetor: fim
 
-aux:print();
+--Para printar a lista:
+aux:begin()
+for i=1, aux:tam() do
+  print(aux:after()) -->test 17 true fim
+end
+
+aux:swap({1, "trocado", 124, false});
+
+--Para printar a lista:
+aux:finale()
+for i=1, aux:tam() do
+  print(aux:before()) -->false 124 trocado 1
+end
 
 aux:free();
+aux = nil;

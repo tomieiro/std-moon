@@ -30,6 +30,12 @@ function Vetor:at(index)
     return self.itens[index];
 end
 
+--Metodo que retorna o tamanho do Vetor.
+--return: (Int)Tamanho do Vetor.
+function Vetor:tam()
+    return #self.itens
+end
+
 --Metodo front que acessa o primeiro objeto do Vetor.
 --return: (Object) Objeto da primeira posicao do Vetor.
 function Vetor:front()
