@@ -263,7 +263,19 @@ require("Open");
 <h5>Exemplo</h5>
 
 ```lua
-require("Open");
+local Lista = require("lista");
+local aux = Lista:new();
+
+aux:append("test");
+aux:append(17);
+aux:append(true);
+aux:append("fim");
+
+--Para printar a lista:
+aux:print();
+
+aux:free();
+aux = nil;
 ```
 <hr>
 
