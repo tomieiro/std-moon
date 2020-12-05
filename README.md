@@ -167,11 +167,97 @@ require("Open");
 <div>
   <h5>Informacoes</h5>
   <div>
-    <p>...</p>
+    <p>Estrutura basica de Lista. Seguem métodos tradicionais.</p>
   </div>
-  <h5>Metodos</h5>
+  <h5>Métodos</h5>
   <div>
-    <p>...</p>
+    <p>
+      <ul>
+        <li>Lua:new(atributos)
+          <ul>
+            <li>Descricao: Metodo cosntrutor que instancia o objeto Lista..</li>
+            <li>Argumentos: (Table) Atributos desejados para a Lista.</li>
+            <li>Retorno: (Object) Lista instanciada.</li>
+          </ul>
+        </li>
+        <li>Lista:append(objeto)
+          <ul>
+            <li>Descricao: Metodo append que insere um objeto no fim da Lista.</li>
+            <li>Argumentos: (Object) Objeto desejados para incluir na Lista.</li>
+          </ul>
+        </li>
+        <li>Lista:insert(objeto, i)
+          <ul>
+            <li>Descricao: Metodo append que insere um objeto em uma posição específica da Lista.</li>
+            <li>Argumentos: (Object) Objeto desejados para incluir na Lista.</li>
+            <li>            (Int) Índice da posição para inserir na lista.</li>
+          </ul>
+        </li>
+        <li>Lista:pop(i)
+          <ul>
+            <li>Descricao: Metodo pop que remove um objeto específico da Lista.</li>
+            <li>Argumentos: (Int) Índice da posição para remover da lista.</li>
+            <li>Retorno: (Object) Objeto removida da Lista.</li>
+          </ul>
+        </li>
+        <li>Lista:print()
+          <ul>
+            <li>Descricao: Funcao que printa toda a lista</li>
+          </ul>
+        </li>
+        <li>Lista:count()
+          <ul>
+            <li>Descricao: Funcao que retorna a quantidade de elementos na lista.</li>
+            <li>Retorno: (Int) Quantidade de elementos da lista.</li>
+          </ul>
+        </li>
+        <li>Lista:extend(lista_base)
+          <ul>
+            <li>Descricao: Funcao que extende uma lista em outra. Concatena no fim. Ou seja, adiciona a lista_base no fim da lista.</li>
+            <li>Argumentos: (Lista) Lista a ser adicionada.</li>
+          </ul>
+        </li>
+        <li>Lista:clear()
+          <ul>
+            <li>Descricao: Funcao que remove todos os elementos de uma Lista.</li>
+          </ul>
+        </li>
+        <li>Lista:index(elemento)
+          <ul>
+            <li>Descricao: Funcao que retorna o índice do primeiro elemento com o valor especificado.</li>
+            <li>Argumentos: (Object) elemento a ser identificado na lista.</li>
+            <li>Retorno: (Int) Índice correspondente. Quando não há um elemento, retorna -1;</li>
+          </ul>
+        </li>
+        <li>Lista:remove(elemento)
+          <ul>
+            <li>Descricao: Funcao que remove o primeiro elemento com o valor especificado.</li>
+            <li>Retorno: (Object) elemento a ser identificado na lista.</li>
+          </ul>
+        </li>
+        <li>Lista:copy()
+          <ul>
+            <li>Descricao: Funcao que retorna a cópia de uma lista.</li>
+            <li>Argumentos: (Object) elemento a ser identificado na lista.</li>
+          </ul>
+        </li>
+        <li>Lista:reverse()
+          <ul>
+            <li>Descricao: Funcao que reverte a ordem dos elementos de uma lista.</li>
+          </ul>
+        </li>
+        <li>Lista:sort()
+          <ul>
+            <li>Descricao: Funcao que ordena uma Lista.</li>
+          </ul>
+        </li>
+        <li>Lista:free()
+          <ul>
+            <li>Descricao: Metodo para liberar a Lista.</li>
+          </ul>
+        </li>
+      </ul>
+    </p>
   </div>
 </div>
 <h5>Exemplo</h5>
