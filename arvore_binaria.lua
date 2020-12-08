@@ -28,20 +28,18 @@ function No:insert_filho(no_filho)
   end
 end
 
--- function No:print()
---  if(type(self.NoDir) ~= "table" and (no_filho >= self.valor)) then
---     return
---   end
---   if(type(self.NoEsq) ~= "table" and (no_filho < self.valor)) then
---     return
---   end
+function No:print()
+  if(type(self.NoEsq) =="table") then
+    io.write(self.NoEsq:print());
+  end
 
---   if(no_filho >= self.valor) then
---     self.NoDir:insert_filho(no_filho);
---   else
---     self.NoEsq:insert_filho(no_filho);
---   end
--- end
+  io.write(string.format("%s ", self.valor));
+
+  if(type(self.NoDir) == "table") then
+    io.write(self.NoDir:print());
+  end
+  
+end
 
 --Classe Arvore
 Arvore = {itens = {}, profundidade = 0, raiz = 0};
@@ -67,12 +65,12 @@ function Arvore:insert(no_aux)
   self.raiz:insert_filho(no_aux);
 end
 
--- function Arvore:print(no_atual)
---   if(self.raiz == 0) then error("\27[33mErro: Arvore vazia!\27[0m") end
---   if(type(no_atual) == "nil") then
---     no_atual = self.raiz;
---   end
---   print(no_atual:print());
--- end
+function Arvore:print(no_atual)
+  if(self.raiz == 0) then error("\27[33mErro: Arvore vazia!\27[0m") end
+  if(type(no_atual) == "nil") then
+    no_atual = self.raiz;
+  end
+  print(no_atual:print());
+end
 
 return Arvore;
