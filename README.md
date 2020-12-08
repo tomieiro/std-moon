@@ -80,7 +80,7 @@ require("Open");
   <h5>Metodos</h5>
   <div>
     <ul>
-      <li>Fila:new(args)
+      <li><b>Fila:new(args)</b>
         <ul>
           <li>Descricao: Metodo construtor que instancia o objeto Fila.</li>
           <li>Argumentos: (Table) Atributos desejados para a Fila.</li>
