@@ -251,7 +251,7 @@ require("Open");
             <li>Descricao: Funcao que ordena uma Lista.</li>
           </ul>
         </li>
-        <li><b>Lista:free()<b>
+        <li><b>Lista:free()</b>
           <ul>
             <li>Descricao: Metodo para liberar a Lista.</li>
           </ul>
