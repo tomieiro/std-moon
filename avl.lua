@@ -1,8 +1,6 @@
 
-Tree = {raiz = {}, numero_nos = 0}
+Tree = {}
 
--- Método que instancia o objeto Tree
--- args: () 
 
 function Tree:new(atributos)
     atributos = atributos or {};
@@ -24,50 +22,91 @@ function Tree:getHeight(node)
 end
 
 function Tree:setHeight(node)
-    node.height = math.max(getHeight(node.right), getHeight(node.right)) 
+    node.height = math.max(Tree:getHeight(node.right), Tree:getHeight(node.right)) + 1
 end
 
 function Tree:getBalance(node)
-    return getHeight(node.right) - getHeight(node.left)
+    return Tree:getHeight(node.right) - Tree:getHeight(node.left)
 end
 
-function Tree:leftRotate()
-
+function Tree:rotateNode(sub_raiz, rot_side, oppo_side)
+    local pivo = sub_raiz[oppo_side]
+    sub_raiz[oppo_side] =  pivo[rot_side]
+    pivo[rot_side] = sub_raiz
+    sub_raiz, pivo = pivo, sub_raiz
+    Tree:setHeight(pivo)
+    Tree:setHeight(sub_raiz)
+    return sub_raiz
 end
 
-
-function Tree:rightRotate()
-
+function Tree:updateSubtree(sub_raiz)
+    Tree:setHeight(sub_raiz)
+    local rot_side, oppo_side, pivo, rotate_pivo
+    local balance = getBalance(sub_raiz)
+    if balance > 1 then
+        pivo = sub_raiz.right
+        if Tree:getBalance(pivo) < 0 then rotate_pivo = true end
+        rot_side, oppo_side = 'left', 'right'
+    elseif balance < -1 then
+        pivo = sub_raiz.left 
+        if Tree:getBalance(pivo) > 0  then rotate_pivo = true end
+        rot_side, oppo_side = 'right', 'left'
+    end
+    if rot_side then
+        if rotate_pivo then
+            sub_raiz[oppo_side] = Tree:rotateNode(pivo, oppo_side, rot_side)
+        end
+        sub_raiz = Tree:rotateNode(sub_raiz, rot_side, oppo_side)
+    end
+    return sub_raiz
 end
 
-
-function Tree:add(new_value)
+function Tree:add(self, new_value)
    
-    local No 
-
-    if not No or not No.value then
-        No = newNode(new_value)
+    if not self or not self.value then
+        self = newNode(new_value)
     else
-        if new_value < No.value then
-            No.left = add(No.left,new_value)
-        elseif new_value > No.value then
-            self.right = add(No.right, new_value)
+        if new_value < self.value then
+            self.left = Tree:add(self.left,new_value)
+        elseif new_value > self.value then
+            self.right = Tree:add(self.right, new_value)
+        else new_value = nil end
+        Tree:updateSubtree(self)
     end
-
-  
-
-    if self.numero_nos == 0 then
-        self.raiz = No
-    else
-
-    end
-
-    self.numero_nos = self.numero_nos + 1
 end
 
-function Tree:remove()
-
+function Tree:remove(self, value)
+    local v = self.value
+    if v == value then
+        if not self.left or self.right then
+            return self.left or self.right
+        else
+            local sNode = self.right
+            while sNode.left do
+                sNode = sNode.left
+            end
+            self = Tree:remove(self, sNode.value)
+            self.value = sNode.value
+            return self
+        end
+    else 
+        if value < v then
+            self.left = Tree:remove(self.left, value)
+        else
+            self.right = Tree:remove(self.right, value)
+        end
+    end
+    return updateSubtree(self)
 end
+
+function Tree:printTree(self)
+    if self then
+        Tree:printTree(self.left)
+        print(self.value)
+        Tree:printTree(self.right)
+    end
+end
+
 
 function Tree:free()
     
