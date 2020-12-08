@@ -1,5 +1,5 @@
 --Classe Interna No
-local No = {NoEsq = 0, NoDir = 0, valor = 0}
+local No = {NoEsq = nil, NoDir = nil, valor = nil}
 
 --Metodo construtor que instancia o objeto No.
 --args: (Table) Atributos desejados para a arvore.
@@ -42,7 +42,7 @@ function No:print()
 end
 
 --Classe Arvore
-Arvore = {itens = {}, profundidade = 0, raiz = 0};
+Arvore = {profundidade = nil, raiz = nil};
 
 --Metodo construtor que instancia o objeto Arvore Binaria.
 --args: (Table) Atributos desejados para a arvore.
@@ -60,6 +60,7 @@ function Arvore:insert(no_aux)
   end
   if(type(Arvore.raiz) ~= "table") then
     Arvore.raiz = No:new({valor = no_aux});
+    self.profundidade = 1;
     return;
   end
   self.raiz:insert_filho(no_aux);
