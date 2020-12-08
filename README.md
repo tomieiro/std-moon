@@ -87,19 +87,19 @@ require("Open");
           <li>Retorno: (Object) Fila instanciada.</li>
         </ul>
       </li>
-      <li>Fila:push(args)
+      <li><b>Fila:push(args)</b>
         <ul>
           <li>Descricao: Metodo push que insere um objeto na Fila.</li>
           <li>Argumentos: (Object) Objeto desejados para incluir na Fila.</li>
         </ul>
       </li>
-      <li>Fila:pop()
+      <li><b>Fila:pop()</b>
         <ul>
           <li>Descricao: Metodo pop que remove um objeto da Fila.</li>
           <li>Retorno: (Object) Objeto removida da Fila.</li>
         </ul>
       </li>
-      <li>Fila:free()
+      <li><b>Fila:free()</b>
         <ul>
           <li>Descricao: Metodo para liberar a Fila.</li>
         </ul>
@@ -173,85 +173,85 @@ require("Open");
   <div>
     <p>
       <ul>
-        <li>Lua:new(atributos)
+        <li><b>Lua:new(atributos)</b>
           <ul>
             <li>Descricao: Metodo cosntrutor que instancia o objeto Lista..</li>
             <li>Argumentos: (Table) Atributos desejados para a Lista.</li>
             <li>Retorno: (Object) Lista instanciada.</li>
           </ul>
         </li>
-        <li>Lista:append(objeto)
+        <li><b>Lista:append(objeto)</b>
           <ul>
             <li>Descricao: Metodo append que insere um objeto no fim da Lista.</li>
             <li>Argumentos: (Object) Objeto desejados para incluir na Lista.</li>
           </ul>
         </li>
-        <li>Lista:insert(objeto, i)
+        <li><b>Lista:insert(objeto, i)</b>
           <ul>
             <li>Descricao: Metodo append que insere um objeto em uma posição específica da Lista.</li>
             <li>Argumentos: (Object) Objeto desejados para incluir na Lista.</li>
             <li>            (Int) Índice da posição para inserir na lista.</li>
           </ul>
         </li>
-        <li>Lista:pop(i)
+        <li><b>Lista:pop(i)</b>
           <ul>
             <li>Descricao: Metodo pop que remove um objeto específico da Lista.</li>
             <li>Argumentos: (Int) Índice da posição para remover da lista.</li>
             <li>Retorno: (Object) Objeto removida da Lista.</li>
           </ul>
         </li>
-        <li>Lista:print()
+        <li><b>Lista:print()</b>
           <ul>
             <li>Descricao: Funcao que printa toda a lista</li>
           </ul>
         </li>
-        <li>Lista:count()
+        <li><b>Lista:count()</b>
           <ul>
             <li>Descricao: Funcao que retorna a quantidade de elementos na lista.</li>
             <li>Retorno: (Int) Quantidade de elementos da lista.</li>
           </ul>
         </li>
-        <li>Lista:extend(lista_base)
+        <li><b>Lista:extend(lista_base)</b>
           <ul>
             <li>Descricao: Funcao que extende uma lista em outra. Concatena no fim. Ou seja, adiciona a lista_base no fim da lista.</li>
             <li>Argumentos: (Lista) Lista a ser adicionada.</li>
           </ul>
         </li>
-        <li>Lista:clear()
+        <li><b>Lista:clear()</b>
           <ul>
             <li>Descricao: Funcao que remove todos os elementos de uma Lista.</li>
           </ul>
         </li>
-        <li>Lista:index(elemento)
+        <li><b>Lista:index(elemento)</b>
           <ul>
             <li>Descricao: Funcao que retorna o índice do primeiro elemento com o valor especificado.</li>
             <li>Argumentos: (Object) elemento a ser identificado na lista.</li>
             <li>Retorno: (Int) Índice correspondente. Quando não há um elemento, retorna -1;</li>
           </ul>
         </li>
-        <li>Lista:remove(elemento)
+        <li><b>Lista:remove(elemento)</b>
           <ul>
             <li>Descricao: Funcao que remove o primeiro elemento com o valor especificado.</li>
             <li>Retorno: (Object) elemento a ser identificado na lista.</li>
           </ul>
         </li>
-        <li>Lista:copy()
+        <li><b>Lista:copy()</b>
           <ul>
             <li>Descricao: Funcao que retorna a cópia de uma lista.</li>
             <li>Argumentos: (Object) elemento a ser identificado na lista.</li>
           </ul>
         </li>
-        <li>Lista:reverse()
+        <li><b>Lista:reverse()</b>
           <ul>
             <li>Descricao: Funcao que reverte a ordem dos elementos de uma lista.</li>
           </ul>
         </li>
-        <li>Lista:sort()
+        <li><b>Lista:sort()</b>
           <ul>
             <li>Descricao: Funcao que ordena uma Lista.</li>
           </ul>
         </li>
-        <li>Lista:free()
+        <li><b>Lista:free()<b>
           <ul>
             <li>Descricao: Metodo para liberar a Lista.</li>
           </ul>
@@ -342,80 +342,80 @@ require("Open");
   <h5>Metodos</h5>
   <div>
     <ul>
-      <li>Vetor:new(args)
+      <li><b>Vetor:new(args)</b>
         <ul>
           <li>Descricao: Metodo construtor que instancia o objeto Vetor.</li>
           <li>Argumentos: (Table) Atributos desejados para o Vetor.</li>
           <li>Retorno: (Object) Vetor instanciado.</li>
         </ul>
       </li>
-      <li>Vetor:insert(objeto)
+      <li><b>Vetor:insert(objeto)</b>
         <ul>
           <li>Descricao: Metodo insert que insere um objeto no Vetor.</li>
           <li>Argumentos: (Object) Objeto desejados para incluir no Vetor.</li>
         </ul>
       </li>
-      <li>Vetor:at(index)
+      <li><b>Vetor:at(index)</b>
         <ul>
           <li>Descricao: Metodo at que acessa um objeto do Vetor.</li>
           <li>Argumentos: (Int) Indice qual se deseja acessar</li>
           <li>Retorno: (Object) Objeto acessado do Vetor.</li>
         </ul>
       </li>
-      <li>Vetor:tam()
+      <li><b>Vetor:tam()</b>
         <ul>
           <li>Descricao: Metodo que retorna o tamanho do Vetor.</li>
           <li>Retorno: (Int)Tamanho do Vetor.</li>
         </ul>
       </li>
-      <li>Vetor:front()
+      <li><b>Vetor:front()</b>
         <ul>
           <li>Descricao: Metodo front que acessa o primeiro objeto do Vetor.</li>
           <li>Retorno: (Object) Objeto da primeira posicao do Vetor.</li>
         </ul>
       </li>
-      <li>Vetor:back()
+      <li><b>Vetor:back()</b>
         <ul>
           <li>Descricao: Metodo back que acessao ultimo objeto do Vetor.</li>
           <li>Retorno: (Object) Objeto da ultima posicao do Vetor.</li>
         </ul>
       </li>
-      <li>Vetor:begin()
+      <li><b>Vetor:begin()</b>
         <ul>
           <li>Descricao: Metodo begin que seta o iterador para o primeira posicao do Vetor.</li>
         </ul>
       </li>
-      <li>Vetor:finale()
+      <li><b>Vetor:finale()</b>
         <ul>
           <li>Descricao: Metodo finale que seta o iterador para a ultima posicao do Vetor.</li>
         </ul>
       </li>
-      <li>Vetor:setIt(index)
+      <li><b>Vetor:setIt(index)</b>
         <ul>
           <li>Metodo setIt que seta o iterador para uma posicao arbitraria do Vetor.</li>
           <li>Argumentos: (Int) Indice qual se deseja setar o iterador.</li>
         </ul>
       </li>
-      <li>Vetor:after()
+      <li><b>Vetor:after()</b>
         <ul>
           <li>Descricao: Metodo after que busca o proximo elemento do vetor baseando-se no iterador.</li>
           <li>Retorno: (Object) Objeto da posicao iterada.</li>
         </ul>
       </li>
-      <li>Vetor:before()
+      <li><b>Vetor:before()</b>
         <ul>
           <li>Descricao: Metodo before que busca o elemento anterior do vetor baseando-se no iterador.</li>
           <li>Retorno: (Object) Objeto da posicao iterada.</li>
         </ul>
       </li>
-      <li>Vetor:swap(vetor_base)
+      <li><b>Vetor:swap(vetor_base)</b>
         <ul>
           <li>Descricao: Metodo swap que troca todo conteudo do Vetor pelo conteudo de outro Vetor.</li>
           <li>Argumentos: (Vetor) Vetor base para o swap</li>
           <li>Retorno: (Int) Numero de posicoes copiadas</li>
         </ul>
       </li>
-      <li>Vetor:free()
+      <li><b>Vetor:free()</b>
         <ul>
           <li>Descricao: Metodo para liberar o Vetor.</li>
         </ul>
