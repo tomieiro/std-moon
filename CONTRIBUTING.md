@@ -15,8 +15,6 @@
 
 	- <strong>Mensagens de commit</strong>: A mensagem de commit deve descrever que mudanças estão sendo feitas. Não recomensamos mensagens genéricas e inapropriadas.
 
-	- <strong>Variaveis</strong>: Nomes de variaveis usadas devem explicar o que ela faz. Alguns nomes inaceitaves são:- a, b, hello, world, n e etc.  Para variaveis de multiplos nomes, usar camel case(_), como a seguir: player_initial_energy, em vez de playerInitialEnergy.
-
 ## Nova Issue (feature ou bug)
 
 - O tempo de revisão é de no máximo uma semana.
