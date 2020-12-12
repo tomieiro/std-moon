@@ -15,6 +15,18 @@ end
 --args: (Object) Objeto desejados para incluir no Mapa.
 function Mapa:push(chave, objeto)
     local aux = {chave, objeto}
+    if (chave < 0) then
+        error("Chave invalida ou em uso");
+    end
+
+    if(self.size > 0) then
+        for i=self._indexfirst,self._indexlast do
+            if(self.itens[i] == aux[1])then
+                error("Chave invalida ou em uso");
+            end
+        end
+    end
+
     self.size = self.size +1; 
     table.insert(self.itens,self._indexlast,aux);
     self._indexlast = self._indexlast + 1;
@@ -24,6 +36,9 @@ end
 --Metodo pop que remove um objeto da primeira posição
 --return: (Object) Objeto removido do mapa
 function Mapa: pop()
+    if (self.size < 1) then
+        error("Estrutura vazia ou invalida");
+    end
     self.size = self.size -1;
     self. _indexfirst = self. _indexfirst +1;
     return table.remove(self.itens,self. _indexfirst -1);
@@ -34,6 +49,9 @@ end
 --return: (Object) Objeto encontrado que possui a chave desejada.
 function Mapa: getByKey(chave)
     local aux;
+    if (chave < 0) then
+        error("Chave invalida.");
+    end
     for i=self._indexfirst, self._indexlast do
         aux = self.itens[i];
         if(aux[1] == chave) then
@@ -44,13 +62,13 @@ function Mapa: getByKey(chave)
 end
 
 --Metodo set que procura e altera o primeiro objeto com a chave desejada
---args: (Object) chave que esta sendo  buscada; nova chave que vai substuir a antiga; novo objeto que vai substituir o antigo.
-function Mapa: setByKey(chave,nova_chave,novo_objeto)
+--args: (Object) chave que esta sendo  buscada;novo objeto que vai substituir o antigo.
+function Mapa: setByKey(chave,novo_objeto)
     local aux;
     for i=self._indexfirst, self._indexlast do
         aux = self.itens[i];
         if(aux[1] == chave) then
-            self.itens[i] = {nova_chave,novo_objeto};
+            self.itens[i] = {chave,novo_objeto};
             return;
         end
     end
@@ -67,6 +85,5 @@ function Mapa:free()
     self = nil;
     collectgarbage();
 end
-
 
 return Mapa;
