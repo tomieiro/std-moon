@@ -40,8 +40,8 @@ function Mapa: pop()
         error("Estrutura vazia ou invalida");
     end
     self.size = self.size -1;
-    self. _indexfirst = self. _indexfirst +1;
-    return table.remove(self.itens,self. _indexfirst -1);
+    self._indexfirst = self._indexfirst +1;
+    return table.remove(self.itens,(self._indexfirst -1));
 end
 
 --Metodo get que retorna o primeiro objeto com a chave desejada.
@@ -71,6 +71,16 @@ function Mapa: setByKey(chave,novo_objeto)
             self.itens[i] = {chave,novo_objeto};
             return;
         end
+    end
+end
+
+function Mapa:print()
+    local aux;
+    for i=self._indexfirst,self._indexlast - 1 do
+        aux = self.itens[i];
+        print("obj: ");
+        print(aux[1]);
+        print(aux[2]);
     end
 end
 

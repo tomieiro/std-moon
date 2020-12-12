@@ -5,13 +5,17 @@ mapa =  Mapa:new( );
 
 for i=1, 2 do
     for j=1, 2 do
-        mat:setPos(i*j,i, j);
-        print(mat:getPos(i,j));
+        mapa:push((i*2)+j, i*j + 5);
+        print("elemento adicionado: ")
+        print(mapa:getByKey((i*2)+j)[1]);
+        print(mapa:getByKey((i*2)+j)[2]);
     end
 end
 
-mat:swap(1,4,4,2);
-print(mat:getPos(1,1));
-print(mat:getPos(2,2));
+print("----------------------------------------------");
+mapa:print();
+print("----------------------------------------------");
+mapa:pop();
+mapa:print();
 
-mat:free();
+mapa:free();
