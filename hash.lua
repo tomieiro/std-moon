@@ -1,12 +1,16 @@
 function hash_multi(key, a, m, k)
     local val = (key+(k*k))*a;
-	val = val - math.floor(val);
+    --print(val)
+    val = val - math.floor(val);
+    --print(val)
+    --print(val*m)
 	return math.floor(val*m);
 end
 
 function hash_search(t, key, m)
 	local a = (math.sqrt(5)-1)/2.0;
-	local pos, k = -1;
+    local pos;
+    local k = -1;
 	repeat
 		k = k + 1;
 		pos = hash_multi(key, a, m, k);
@@ -39,6 +43,7 @@ function TabelaHash:new(atributos)
     self._indexlast = self._indexfirst + self.m - 1;
     for i=1, self.m do
         self.tabela[i] = nil;
+        --table.insert(self.tabela, 1, nil);
     end
     return atributos;
 end
@@ -61,13 +66,16 @@ function TabelaHash:insert(key)
 		k = k + 1;
 		--pos = hash_division(key, m, k);
         pos = hash_multi(key, A, self.m, k);
+        --print(pos)
         local aux = self.tabela[pos];
+        --print(aux)
         if (aux ~= nil) then
             print("Colisão ", self.tabela[pos]);
         end
-    until(aux ~= nil)
-    print(pos)
-    table.insert(self.tabela, pos, key);
+    until(not aux)
+    --print(pos)
+    self.tabela[pos] = key;
+    --table.insert(self.tabela, pos, key);
     self.tamanho = self.tamanho + 1;
     return;
 end
@@ -95,13 +103,24 @@ end
 --Funcao que printa toda a hash
 function TabelaHash:print()
     for i=1, self.m do
-        if self.itens[i] ~= nil then
-            print(i, self.itens[i]);
+        if self.tabela[i] ~= nil then
+            print("Elemento ",self.tabela[i], " na posição ", i, ".");
         end
     end
     return;
 end
 
+--Metodo para liberar a TabelaHash
+function TabelaHash:free()
+    for i=self._indexfirst, self._indexlast - 1 do
+        self.tabela[i] = nil;
+    end
+    local aux = {__mode = "k"}
+    setmetatable(self.tabela,aux);
+    setmetatable(self, aux);
+    self = nil;
+    collectgarbage();
+end
 
 
-return Lista;
+return TabelaHash;
