@@ -1,5 +1,5 @@
 --Definicao padrao dos atributos da Mapa
-Mapa = {itens = {}, size = 0,  _indexfirst = 1, _indexlast = 1};
+Mapa = {itens = {}, size = 0};
 
 --Metodo cosntrutor que instancia o objeto Mapa.
 --args: (Table) Atributos desejados para o Mapa.
@@ -14,80 +14,72 @@ end
 --Metodo push que insere um objeto e uma chave no Mapa.
 --args: (Object) Objeto desejados para incluir no Mapa.
 function Mapa:push(chave, objeto)
-    local aux = {chave, objeto}
-    if (chave < 0) then
-        error("Chave invalida ou em uso");
-    end
 
-    if(self.size > 0) then
-        for i=self._indexfirst,self._indexlast do
-            if(self.itens[i] == aux[1])then
-                error("Chave invalida ou em uso");
-            end
-        end
+    if ((type(self.itens[chave]) ~= "nil" )or (chave == "nil")) then
+        error("\27[33mErro: Chave invalida ou em uso!\27[0m");
     end
-
+    
     self.size = self.size +1; 
-    table.insert(self.itens,self._indexlast,aux);
-    self._indexlast = self._indexlast + 1;
+    self.itens[chave] = objeto;
     return;
 end
 
---Metodo pop que remove um objeto da primeira posição
---return: (Object) Objeto removido do mapa
-function Mapa: pop()
-    if (self.size < 1) then
-        error("Estrutura vazia ou invalida");
+function mapa:removeByValue(objeto,decisao)
+    for k,v in pairs(self.itens) do
+        if(v == objeto) then
+            self.itens[k] = nil
+            if(decisao == "primeiro") then return end
+        end
     end
+    --issue 16
+end
+
+--Metodo que remove um objeto da primeira posição
+--return: (Object) Objeto removido do mapa
+function Mapa:remove(chave)
+    if (self.size < 1) then
+        error("\27[33mErro: Estrutura vazia!\27[0m");
+    end
+
     self.size = self.size -1;
-    self._indexfirst = self._indexfirst +1;
-    return table.remove(self.itens,(self._indexfirst -1));
+    self.itens[chave] = nil;
+    --issue 16
+    return;
 end
 
 --Metodo get que retorna o primeiro objeto com a chave desejada.
 --args: (Object) chave que esta sendo buscada.
 --return: (Object) Objeto encontrado que possui a chave desejada.
-function Mapa: getByKey(chave)
-    local aux;
-    if (chave < 0) then
-        error("Chave invalida.");
+function Mapa:getByKey(chave)
+    if (type(self.itens[chave]) == nil or chave == nil) then
+        error("\27[33mErro: Chave invalida ou em uso!\27[0m");
     end
-    for i=self._indexfirst, self._indexlast do
-        aux = self.itens[i];
-        if(aux[1] == chave) then
-            return aux;
-        end
-    end
-    return nil;
+
+    return self.itens[chave];
 end
 
 --Metodo set que procura e altera o primeiro objeto com a chave desejada
 --args: (Object) chave que esta sendo  buscada;novo objeto que vai substituir o antigo.
-function Mapa: setByKey(chave,novo_objeto)
-    local aux;
-    for i=self._indexfirst, self._indexlast do
-        aux = self.itens[i];
-        if(aux[1] == chave) then
-            self.itens[i] = {chave,novo_objeto};
-            return;
-        end
+function Mapa:setByKey(chave,novo_objeto)
+    if (type(self.itens[chave]) == nil or chave == nil) then
+        error("\27[33mErro: Chave invalida!\27[0m");
     end
+    self.remove(chave);
+    self.push(chave, novo_objeto);
+    
 end
 
 function Mapa:print()
-    local aux;
-    for i=self._indexfirst,self._indexlast - 1 do
-        aux = self.itens[i];
-        print("obj: ");
-        print(aux[1]);
-        print(aux[2]);
+    for k,v in pairs(self.itens) do
+        
+        print(k,v);
     end
 end
 
 --Metodo para liberar o Mapa
 function Mapa:free()
-    for i=self._indexfirst, self._indexlast do
-        self.itens[i] = nil;
+    for k,_ in pairs(self.itens) do
+        self.itens[k] = nil;
     end
     local aux = {__mode = "k"}
     setmetatable(self.itens,aux);
