@@ -1,5 +1,5 @@
 
-local No = {no_dir = nil, no_esq = nil, valor = 0, height = 0};
+local No = {no_dir = nil, no_esq = nil, valor = 0, height = 1};
 
 function No:new(atributos)
     atributos = atributos or {};
@@ -10,35 +10,77 @@ end
 
 function No:getHeight(node)
     
+
     if(type(node) ~= "table") then
-        return 0;
+        return 1;
     end
 
     return node.height
 end
 
+
+--[[
 function No:setHeight(node)
+  
+    print(node)
 
     if(type(node) ~= "table") then
-        return 1
+        return 1;
     end
-    node.height = math.max(No:getHeight(node.right), No:getHeight(node.right)) + 1
+    
+    node.height = math.max(No:getHeight(node.no_dir), No:getHeight(node.no_esq)) + 1
+end
+]]
+
+
+function No:getBalance(node)
+
+    if(type(node) ~= "table") then
+        return 1;
+    end
+
+    return No:getHeight(node.no_dir) - No:getHeight(node.no_esq)
 end
 
--- function No:getBalance(node)
---     return Arvore:getHeight(node.right) - Arvore:getHeight(node.left)
--- end
+function No:leftRotate(node)
+    local ramo_dir = node.no_dir
+    local ramo_esq = ramo_dir.no_esq
 
+    ramo_dir.no_dir = node
+    node.no_esq = ramo_esq
+
+    node.height = math.max(No:getHeight(node.no_esq), No:getHeight(node.no_dir)) + 1
+    ramo_dir.height = math.max(No:getHeight(ramo_dir.no_esq),No:getHeight(ramo_dir.no_dir)) + 1
+
+    return ramo_dir
+
+end
+
+function No:rightRotate(node)
+    
+    local ramo_esq = node.no_esq
+    local ramo_dir = ramo_esq.no_dir
+
+    ramo_esq.no_dir = node.no_esq
+    node.no_esq = ramo_dir
+
+    node.height =  math.max(No:getHeight(node.no_esq), No:getHeight(node.no_dir)) + 1
+    ramo_esq.height = math.max(No:getHeight(ramo_esq.no_esq),No:getHeight(ramo_esq.no_dir)) + 1
+
+    return ramo_esq
+
+end
 
 function No:insereNo(new_value)
+   
     if( (type(self.no_dir) ~= "table") and (new_value >= self.valor)) then
         self.no_dir = No:new({valor = new_value});
-        No:setHeight(self.no_dir)
+        self.height = math.max(No:getHeight(self.no_dir), No:getHeight(self.no_esq)) + 1
         return;
     end
     if( (type(self.no_esq) ~= "table") and (new_value < self.valor)) then
         self.no_esq = No:new({valor = new_value});
-        No:setHeight(self.no_esq)
+        self.height = math.max(No:getHeight(self.no_dir), No:getHeight(self.no_esq)) + 1
         return;
     end
 
@@ -47,10 +89,49 @@ function No:insereNo(new_value)
     else
         self.no_esq:insereNo(new_value);
     end
+
+    self.height = math.max(No:getHeight(self.no_dir), No:getHeight(self.no_esq)) + 1
+
+    local balance = No:getBalance(self)
+
+    if (balance > 1 and new_value < self.no_esq.valor) then
+        return No:rightRotate(self)
+    end
+
+    if(balance < -1 and new_value > self.no_dir.valor) then
+        return No:leftRotate(self)
+    end
+
+    if (balance > 1 and new_value > self.no_esq.valor) then 
+        self.no_esq = No:leftRotate(self.no_esq)
+        return No:rightRotate(self)
+    end
+
+    if (balance < -1 and new_value < self.no_dir.valor) then
+        self.no_dir = No:rightRotate(self.no_dir)
+        return No:leftRotate(self)
+    end
+
 end
 
 
+function No:removeNo(value)
 
+    if(self ~= "table") then
+        return
+    end
+    
+    if(value < self.valor) then
+        self.no_esq:removeNo(value)
+    end
+
+    if(value > self.valor) then
+        self.no_dir:removeNo(value)
+    end
+
+
+
+end
 
 Arvore = {raiz = nil, profundidade = 0}
 
@@ -61,38 +142,6 @@ function Arvore:new(atributos)
     return atributos;
 end
 
--- function Arvore:rotateNode(sub_raiz, rot_side, oppo_side)
---     local pivo = sub_raiz[oppo_side]
---     sub_raiz[oppo_side] =  pivo[rot_side]
---     pivo[rot_side] = sub_raiz
---     sub_raiz, pivo = pivo, sub_raiz
---     Arvore:setHeight(pivo)
---     Arvore:setHeight(sub_raiz)
---     return sub_raiz
--- end
-
-function Arvore:updateSubArvore(sub_raiz)
-    Arvore:setHeight(sub_raiz)
-    local rot_side, oppo_side, pivo, rotate_pivo
-    local balance = getBalance(sub_raiz)
-    if balance > 1 then
-        pivo = sub_raiz.right
-        if Arvore:getBalance(pivo) < 0 then rotate_pivo = true end
-        rot_side, oppo_side = 'left', 'right'
-    elseif balance < -1 then
-        pivo = sub_raiz.left 
-        if Arvore:getBalance(pivo) > 0  then rotate_pivo = true end
-        rot_side, oppo_side = 'right', 'left'
-    end
-    if rot_side then
-        if rotate_pivo then
-            sub_raiz[oppo_side] = Arvore:rotateNode(pivo, oppo_side, rot_side)
-        end
-        sub_raiz = Arvore:rotateNode(sub_raiz, rot_side, oppo_side)
-    end
-    return sub_raiz
-end
-
 function Arvore:add(new_value)
     if(type(new_value) ~= "number" and type(new_value) ~= "string") then
         error("\27[33mErro: Tipo do dado não suportado!\27[0m")
@@ -100,38 +149,13 @@ function Arvore:add(new_value)
 
     if (type(self.raiz) ~= "table") then 
       self.raiz = No:new({ valor = new_value })
-      No:setHeight(self.raiz)
       return
     end
 
     self.raiz:insereNo(new_value);
-
-    --Arvore:updateSubArvore(self)
+    
 end
 
--- function Arvore:remove(value)
---     local v = self.value
---     if v == value then
---         if not self.left or self.right then
---             return self.left or self.right
---         else
---             local sNode = self.right
---             while sNode.left do
---                 sNode = sNode.left
---             end
---             self = Arvore:remove(self, sNode.value)
---             self.value = sNode.value
---             return self
---         end
---     else 
---         if value < v then
---             self.left = Arvore:remove(self.left, value)
---         else
---             self.right = Arvore:remove(self.right, value)
---         end
---     end
---     return updateSubArvore(self)
--- end
 
 function No:print()
     if(type(self.no_esq) =="table") then
