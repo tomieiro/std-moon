@@ -43,14 +43,29 @@ function No:getBalance(node)
 end
 
 function No:leftRotate(node)
-    local ramo_dir = node.no_dir
-    local ramo_esq = ramo_dir.no_esq
 
-    ramo_dir.no_dir = node
-    node.no_esq = ramo_esq
+    local ramo_dir;
+    local ramo_esq;
+
+    if(type(node.no_dir) ~= "table") then
+        ramo_dir = node.no_dir
+    end
+
+    if( (type(ramo_dir) == "table") and (type(ramo_dir.no_esq) ~= "table") ) then
+        ramo_esq = ramo_dir.no_esq
+    end
+
+    if(type(ramo_dir) == "table") then
+        ramo_dir.no_esq = node
+    end
+   
+    node.no_dir = ramo_esq
 
     node.height = math.max(No:getHeight(node.no_esq), No:getHeight(node.no_dir)) + 1
-    ramo_dir.height = math.max(No:getHeight(ramo_dir.no_esq),No:getHeight(ramo_dir.no_dir)) + 1
+    if(type(ramo_dir) == "table") then
+        ramo_dir.height = math.max(No:getHeight(ramo_dir.no_esq),No:getHeight(ramo_dir.no_dir)) + 1
+    end
+
 
     return ramo_dir
 
@@ -58,14 +73,28 @@ end
 
 function No:rightRotate(node)
     
-    local ramo_esq = node.no_esq
-    local ramo_dir = ramo_esq.no_dir
+    local ramo_esq 
+    local ramo_dir
 
-    ramo_esq.no_dir = node.no_esq
+    if(type(node.no_esq) ~= "table") then
+        ramo_esq = node.no_esq
+    end
+
+    if(  (type(ramo_esq) == "table") and (type(ramo_esq.no_dir) ~= "table") ) then
+        ramo_dir = ramo_esq.no_dir
+    end
+
+    if( type(ramo_esq) == "table") then
+        ramo_esq.no_dir = node.no_esq
+    end
+
     node.no_esq = ramo_dir
 
     node.height =  math.max(No:getHeight(node.no_esq), No:getHeight(node.no_dir)) + 1
-    ramo_esq.height = math.max(No:getHeight(ramo_esq.no_esq),No:getHeight(ramo_esq.no_dir)) + 1
+    if( type(ramo_esq) == "table") then
+        ramo_esq.height = math.max(No:getHeight(ramo_esq.no_esq),No:getHeight(ramo_esq.no_dir)) + 1
+    end
+
 
     return ramo_esq
 
@@ -94,22 +123,30 @@ function No:insereNo(new_value)
 
     local balance = No:getBalance(self)
 
-    if (balance > 1 and new_value < self.no_esq.valor) then
-        return No:rightRotate(self)
+    if(type(self.no_esq) == "table") then
+        if (balance > 1 and new_value < self.no_esq.valor) then
+            return No:rightRotate(self)
+        end
+
+        if (balance > 1 and new_value > self.no_esq.valor) then 
+            self.no_esq = No:leftRotate(self.no_esq)
+            return No:rightRotate(self)
+        end
+
     end
 
-    if(balance < -1 and new_value > self.no_dir.valor) then
-        return No:leftRotate(self)
-    end
 
-    if (balance > 1 and new_value > self.no_esq.valor) then 
-        self.no_esq = No:leftRotate(self.no_esq)
-        return No:rightRotate(self)
-    end
+    if(type(self.no_dir) ==  "table") then
+        
+        if(balance < -1 and new_value > self.no_dir.valor) then
+            return No:leftRotate(self)
+        end
 
-    if (balance < -1 and new_value < self.no_dir.valor) then
-        self.no_dir = No:rightRotate(self.no_dir)
-        return No:leftRotate(self)
+
+        if (balance < -1 and new_value < self.no_dir.valor) then
+            self.no_dir = No:rightRotate(self.no_dir)
+            return No:leftRotate(self)
+        end
     end
 
 end
