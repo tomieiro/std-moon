@@ -13,7 +13,7 @@
 - As seguintes regras devem ser seguidas na submissão:
 	- <strong>Nome da branch</strong>: O nome da branch inicia com 'in' seguido de hifen '-' e o número da issue. Ex: -Se você resolveu a issue 10 então o nome da branch será in-10.
 
-	- <strong>Mensagens de commit</strong>: A mensagem de commit deve descrever que mudanças estão sendo feitas. Não recomençamos mensagens genéricas e inapropriadas.
+	- <strong>Mensagens de commit</strong>: A mensagem de commit deve descrever que mudanças estão sendo feitas. Não aceitaremos mensagens inapropriadas.
 
 ## Nova Issue (feature ou bug)
 
