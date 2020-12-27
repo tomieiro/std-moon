@@ -11,17 +11,18 @@
 
 - PR serão avaliados no máxima em uma semana.
 - As seguintes regras devem ser seguidas na submissão:
-	- <strong>Nome da branch</strong>: O nome da branch inicia com 'in' seguido de hifen '-' e o número de problema (issue). Ex: -Se você resolveu o issue 10 então o nome da branch será in-10.
+	- <strong>Nome da branch</strong>: O nome da branch inicia com 'in' seguido de hifen '-' e o número da issue. Ex: -Se você resolveu a issue 10 então o nome da branch será in-10.
 
-	- <strong>Mensagens de commit</strong>: A mensagem de commit deve descrever que mudanças estão sendo feitas. Não recomensamos mensagens genéricas e inapropriadas.
+	- <strong>Mensagens de commit</strong>: A mensagem de commit deve descrever que mudanças estão sendo feitas. Não recomençamos mensagens genéricas e inapropriadas.
 
 ## Nova Issue (feature ou bug)
 
 - O tempo de revisão é de no máximo uma semana.
-- Qualquer um pode criar um novo issue, e inclusive, incentivamos essa prática. 
-- Antes de trabalhar nele, espere a aprovação e que a tarefa seja atribuia a você.
+- Qualquer um pode criar um novo issue, e inclusive, incentivamos essa prática.
+- Antes de trabalhar nela, espere a aprovação e que a tarefa seja atribuia a você.
+- Caso queira trabalhar em uma issue já aberta, comente nessa issue, para que um dos administradores a atribua a você.
 
-## Unit Testing (Testes)
+## Teste do modulo implementada
 
-- Teste sua solução e nos comentários de pull request, envie alguns testes.
+- Se a contribuição for em código, teste sua solução e nos comentários de pull request, envie alguns testes.
   
