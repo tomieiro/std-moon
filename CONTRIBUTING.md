@@ -19,7 +19,7 @@
 
 - O tempo de revisão é de no máximo uma semana.
 - Qualquer um pode criar um novo issue, e inclusive, incentivamos essa prática.
-- Antes de trabalhar nela, espere a aprovação e que a tarefa seja atribuia a você.
+- Antes de trabalhar nela, espere a aprovação e que a tarefa seja atribuida a você.
 - Caso queira trabalhar em uma issue já aberta, comente nessa issue, para que um dos administradores a atribua a você.
 
 ## Teste do modulo implementada
