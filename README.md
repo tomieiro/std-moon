@@ -7,7 +7,7 @@ Biblioteca para Linguagem Lua que implementa estruturas de dados mais utilizadas
 
 
 <h3>Motivacao</h3>
-<p></p>
+<p>Criar um repositorio independente e aberto com diversas estruturas de dados implementadas em Lua. A ideia do projeto consiste em expandir o repertorio da biblioteca atraves de contribuicoes externas.</p>
 
 <h3>Contribuicao</h3>
 <p></p>
