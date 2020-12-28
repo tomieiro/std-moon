@@ -78,7 +78,7 @@ function Grafo:printAdjacent(index)
 
     print("[" .. index .. "]")
     for k, v in pairs(self.nos[index].adj) do
-        print("\t[" .. k .. "] (" .. v .. ")")
+        print("\t" .. k .. " (" .. v .. ")")
     end
 end
 
@@ -91,6 +91,14 @@ function Grafo:print()
     for k, v in pairs(self.nos) do
         self:printAdjacent(k)
     end
+end
+
+function Grafo:getValor(index)
+    if(index == nil) then
+        error("\27[33mErro: index não pode ser vazio\27[0m")
+    end
+
+    return self.nos[index].valor
 end
 
 return Grafo
