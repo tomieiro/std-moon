@@ -18,7 +18,6 @@ Biblioteca para Linguagem Lua que implementa estruturas de dados mais utilizadas
 ```lua
 local classe_estrutura = require("estrutura_desejado.lua");
 local objeto = classe_estrutura:new()
-...
 ```
 
 <h3>Documentacao</h3>
