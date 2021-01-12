@@ -5,13 +5,15 @@ Biblioteca para Linguagem Lua que implementa estruturas de dados mais utilizadas
   <img src="https://www.andreas-rozek.de/Lua/Lua-Logo_32x32.png" alt="lua_logo"/ align=center>  Lua: https://www.lua.org/
 </p>
 
-
+<hr>
 <h3>Motivacao</h3>
 <p>Criar um repositorio independente e aberto com diversas estruturas de dados implementadas em Lua. A ideia do projeto consiste em expandir o repertorio da biblioteca atraves de contribuicoes externas.</p>
 
+<hr>
 <h3>Contribuicao</h3>
 <p>Qualquer um pode contribuir, basta abrir uma issue, realizar um fork e fazer um pull request. Ler CONTRUBUTING.md para todos os detalhes desse processo.</p>
 
+<hr>
 <h3>Utilizacao</h3>
 <p>A utilização das estruturas é bem simples. Basta baixar o arquivo ".lua" da estrutura desejada e juntar ao projeto. Após isso, importar e instanciar a classe da estrutura utilizando esse arquivo:</p>
 
@@ -20,6 +22,7 @@ local classe_estrutura = require("estrutura_desejado.lua");
 local objeto = classe_estrutura:new()
 ```
 
+<hr>
 <h3>Documentacao</h3>
 <h4>Arvore binaria</h4>
 <div>
