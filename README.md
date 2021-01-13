@@ -334,9 +334,9 @@ require("Open");
     <ul>
       <li><b>Pilha:new(args)</b>
         <ul>
-          <li>Descricao: Metodo construtor que instancia o objeto Fila.</li>
-          <li>Argumentos: (Table) Atributos desejados para a Fila.</li>
-          <li>Retorno: (Object) Fila instanciada.</li>
+          <li>Descricao: Metodo construtor que instancia o objeto Pilha.</li>
+          <li>Argumentos: (Table) Atributos desejados para a Pilha.</li>
+          <li>Retorno: (Object) Pilha instanciada.</li>
         </ul>
       </li>
       <li><b>Pilha:push(args)</b>
@@ -353,7 +353,7 @@ require("Open");
       </li>
       <li><b>Pilha:free()</b>
         <ul>
-          <li>Descricao: Metodo para liberar a Fila.</li>
+          <li>Descricao: Metodo para liberar a Pilha.</li>
         </ul>
       </li>
     </ul>
