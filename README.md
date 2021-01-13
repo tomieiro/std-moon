@@ -327,17 +327,52 @@ require("Open");
 <div>
   <h5>Informacoes</h5>
   <div>
-    <p>...</p>
+    <p>Estrutura básica de Pilha. Estrutura de dados que segue a logica LIFO(last in, first out).</p>
   </div>
   <h5>Metodos</h5>
   <div>
-    <p>...</p>
+    <ul>
+      <li><b>Pilha:new(args)</b>
+        <ul>
+          <li>Descricao: Metodo construtor que instancia o objeto Fila.</li>
+          <li>Argumentos: (Table) Atributos desejados para a Fila.</li>
+          <li>Retorno: (Object) Fila instanciada.</li>
+        </ul>
+      </li>
+      <li><b>Pilha:push(args)</b>
+        <ul>
+          <li>Descricao: Metodo push que insere um objeto na Pilha.</li>
+          <li>Argumentos: (Object) Objeto desejados para incluir na Pilha.</li>
+        </ul>
+      </li>
+      <li><b>Pilha:pop()</b>
+        <ul>
+          <li>Descricao: Metodo pop que remove um objeto da Pilha.</li>
+          <li>Retorno: (Object) Objeto removido da Pilha.</li>
+        </ul>
+      </li>
+      <li><b>Pilha:free()</b>
+        <ul>
+          <li>Descricao: Metodo para liberar a Fila.</li>
+        </ul>
+      </li>
+    </ul>
   </div>
 </div>
 <h5>Exemplo</h5>
 
 ```lua
-require("Open");
+local Pilha = require("pilha");
+local nova_pilha = Pilha:new();
+
+nova_pilha:push("Primeiro_Elemento");
+nova_pilha:push("Segundo_Elemento");
+
+local elemento_extraido = nova_pilha:pop();
+print(elemento_extraido);
+
+nova_pilha:free();
+nova_pilha = nil;
 ```
 <hr>
 
