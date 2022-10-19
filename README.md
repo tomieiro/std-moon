@@ -1,5 +1,5 @@
-<h1>Lua Data Structures</h1>
-Biblioteca para Linguagem Lua que implementa estruturas de dados mais utilizadas.
+<h1>Lua Standard Library</h1>
+Biblioteca para Linguagem Lua que implementa estruturas de dados mais utilizadas e algoritmos principais.
 
 <p>
   <img src="https://www.andreas-rozek.de/Lua/Lua-Logo_32x32.png" alt="lua_logo"/ align=center>  Lua: https://www.lua.org/
