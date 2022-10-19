@@ -23,7 +23,7 @@ local objeto = classe_estrutura:new()
 ```
 
 <hr>
-<h3>Documentacao</h3>
+<h3>Documentacao - Estrutura de Dados</h3>
 <h4>Arvore binaria</h4>
 <div>
   <h5>Informacoes</h5>
@@ -503,5 +503,9 @@ aux = nil;
 ```
 <hr>
 
+<hr>
+<h3>Documentacao - Algoritmos</h3>
+<h4>Quick</h4>
+...
 
 Este projeto está em desenvolvimento...
