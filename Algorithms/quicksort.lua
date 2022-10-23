@@ -1,4 +1,4 @@
-return function(table)
+local q; q = function(table)
     if #table <= 1 then
         return table
     else
@@ -19,7 +19,7 @@ return function(table)
                 right[#right + 1] = x
             end
         end
-        for _, t in pairs({algorithms.sort.quick(left), {pivot}, algorithms.sort.quick(right)}) do
+        for _, t in pairs({q(left), {pivot}, q(right)}) do
             for _, v in pairs(t) do
                 newtable[#newtable + 1] = v
             end
@@ -27,3 +27,5 @@ return function(table)
         return newtable
     end
 end
+
+return q
