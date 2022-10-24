@@ -5,6 +5,8 @@ Biblioteca para Linguagem Lua que implementa estruturas de dados mais utilizadas
   <img src="https://www.andreas-rozek.de/Lua/Lua-Logo_32x32.png" alt="lua_logo"/ align=center>  Lua: https://www.lua.org/
 </p>
 
+Library to Lua Programming Language that aims to provide most used data structures and algorithms.
+
 <hr>
 <h3>Motivacao</h3>
 <p>Criar um repositorio independente e aberto com diversas estruturas de dados implementadas em Lua. A ideia do projeto consiste em expandir o repertorio da biblioteca atraves de contribuicoes externas.</p>
