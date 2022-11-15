@@ -4,7 +4,7 @@ local function busca_binaria(array, valor)
 
   while(i <= j) do
     -- Divisao do vetor
-    local meio = (i + j) // 2;
+    local meio = math.floor((i + j) / 2); -- Caso a divisao nao seja inteira, usamos apenas a parte inteira do resultado
     local val = array[meio];
 
     -- Realiza a busca
