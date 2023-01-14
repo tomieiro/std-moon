@@ -1,4 +1,4 @@
-<h1>Lua Standard Library</h1>
+<h1>Standard Library for Lua</h1>
 Biblioteca para Linguagem Lua que implementa estruturas de dados mais utilizadas e algoritmos principais.
 
 <p>
