@@ -10,6 +10,7 @@ Library to Lua Programming Language that aims to provide most used data structur
 <hr>
 <h3>Motivacao</h3>
 <p>Criar um repositorio independente e aberto com diversas estruturas de dados implementadas em Lua. A ideia do projeto consiste em expandir o repertorio da biblioteca atraves de contribuicoes externas.</p>
+<p>Os contribuidores e os respectivos arquivos quais contribuiram podem ser trackeados pelo item Contributors na página do GitHub.</p>
 
 <hr>
 <h3>Contribuicao</h3>

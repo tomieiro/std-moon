@@ -1,4 +1,3 @@
--- Made by: [FulecoRafa] Rafael Oliveira 2022-10-25
 local table = require "table"
 
 local M = {}
