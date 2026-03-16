@@ -37,12 +37,15 @@ TabelaHash = {tabela = {}, m = 0, tamanho = 0, _indexfirst = 1, _indexlast = 1};
 --return: (Object) TabelaHash instanciada.
 function TabelaHash:new(atributos)
     atributos = atributos or {};
-    setmetatable(atributos, self);
     self.__index = self;
-    self.m = 1000000;
-    self._indexlast = self._indexfirst + self.m - 1;
-    for i=1, self.m do
-        self.tabela[i] = nil;
+    atributos.tabela = atributos.tabela or {};
+    atributos.m = atributos.m or 1000000;
+    atributos.tamanho = atributos.tamanho or 0;
+    atributos._indexfirst = atributos._indexfirst or 1;
+    atributos._indexlast = atributos._indexfirst + atributos.m - 1;
+    setmetatable(atributos, self);
+    for i=1, atributos.m do
+        atributos.tabela[i] = nil;
         --table.insert(self.tabela, 1, nil);
     end
     return atributos;

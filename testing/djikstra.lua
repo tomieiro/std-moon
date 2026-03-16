@@ -1,4 +1,6 @@
-local dj = require "Algorithms.djikstra"
+package.path = "./?.lua;" .. package.path
+
+local dj = require "algorithms.djisktra"
 
 local graph = { { 0, 4, 0, 0, 0, 0, 0, 8, 0 },
                 { 4, 0, 8, 0, 0, 0, 0, 11, 0 },
@@ -20,3 +22,13 @@ assert(paths[3] == 2)
 assert(paths[2] == 1)
 
 print("Djikstra path test passed!")
+
+local graph_unreachable = { { 0, 1, 0 },
+                            { 1, 0, 0 },
+                            { 0, 0, 0 } };
+local distance_unreachable, paths_unreachable = dj.djikstra(graph_unreachable, 1, 3)
+
+assert(distance_unreachable == math.huge)
+assert(paths_unreachable[3] == nil)
+
+print("Djikstra unreachable test passed!")

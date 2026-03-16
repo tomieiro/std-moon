@@ -6,8 +6,10 @@ Vetor = {itens = {}, _iterator = 1};
 --return: (Object) Vetor instanciado.
 function Vetor:new(atributos)
     atributos = atributos or {};
-    setmetatable(atributos, self);
     self.__index = self;
+    atributos.itens = atributos.itens or {};
+    atributos._iterator = atributos._iterator or 1;
+    setmetatable(atributos, self);
     return atributos;
   end
 

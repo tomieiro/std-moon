@@ -1,4 +1,6 @@
-local ms = require "Algorithms.mergesort"
+package.path = "./?.lua;" .. package.path
+
+local ms = require "algorithms.mergesort"
 
 local list = { 1, 3, 2, 5, 4, 7, 6, 9, 8, 10 }
 local result = ms.mergeSort(list)

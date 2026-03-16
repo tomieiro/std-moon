@@ -6,8 +6,12 @@ Pilha = {itens = {}, tamanho = 0, _indexfirst = 1, _indexlast = 1};
 --return: (Object) Pilha instanciada.
 function Pilha:new(atributos)
     atributos = atributos or {};
-    setmetatable(atributos, self);
     self.__index = self;
+    atributos.itens = atributos.itens or {};
+    atributos.tamanho = atributos.tamanho or 0;
+    atributos._indexfirst = atributos._indexfirst or 1;
+    atributos._indexlast = atributos._indexlast or 1;
+    setmetatable(atributos, self);
     return atributos;
   end
 
