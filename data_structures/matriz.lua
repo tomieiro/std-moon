@@ -6,10 +6,11 @@ Matriz = {m = {}, rows = 0,cols = 0};
 --return: (Object) Matriz instanciada.
 function Matriz:new(atributos, rows, cols)
     atributos = atributos or {};
-    setmetatable(atributos, self);
     self.__index = self;
-    self.rows = rows;
-    self.cols = cols;
+    atributos.m = atributos.m or {};
+    atributos.rows = rows or atributos.rows or 0;
+    atributos.cols = cols or atributos.cols or 0;
+    setmetatable(atributos, self);
     return atributos;
 end
 
@@ -113,4 +114,4 @@ function Matriz:free()
 end
 
 
-return Fila;
+return Matriz;

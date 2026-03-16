@@ -1,4 +1,7 @@
 local q; q = function(table)
+    if type(table) ~= 'table' then
+        error('Argumento invalido para ordenacao.')
+    end
     if #table <= 1 then
         return table
     else
@@ -7,11 +10,13 @@ local q; q = function(table)
         local right = {}
         local newtable = {}
         local pivot = table[len]
-        table[len] = nil
-        for i = 1, len, 1 do
+        if type(pivot) ~= 'number' then
+            error('Valor invalido para ordenacao.')
+        end
+        for i = 1, len - 1, 1 do
             local x = table[i]
             if type(x) ~= 'number' then
-                break
+                error('Valor invalido para ordenacao.')
             end
             if x <= pivot then
                 left[#left + 1] = x

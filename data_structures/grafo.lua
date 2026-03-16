@@ -9,8 +9,10 @@ Grafo = {nos = {}, tamanho = 0};
 --return: (Object) Grafo instanciado.
 function Grafo:new(atributos)
     atributos = atributos or {};
-    setmetatable(atributos, self);
     self.__index = self;
+    atributos.nos = atributos.nos or {};
+    atributos.tamanho = atributos.tamanho or 0;
+    setmetatable(atributos, self);
     return atributos;
 end
 
