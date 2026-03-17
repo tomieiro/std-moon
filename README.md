@@ -811,17 +811,17 @@ print(resultado[1]); --> 1
 <div>
   <h5>Informacoes</h5>
   <div>
-    <p>Algoritmo para caminho minimo em grafos ponderados sem pesos negativos, usando matriz de adjacencia.</p>
+    <p>Algoritmo para caminho minimo em grafos ponderados sem pesos negativos. Aceita a estrutura Grafo do repositorio ou uma matriz de adjacencia.</p>
   </div>
   <h5>Metodos</h5>
   <div>
     <ul>
-      <li><b>dijkstra(matriz, de, para)</b>
+      <li><b>dijkstra(grafo, de, para)</b>
         <ul>
           <li>Descricao: Funcao que calcula a menor distancia entre dois vertices.</li>
-          <li>Argumentos: (Table) Matriz de adjacencia.</li>
-          <li>            (Int) Vertice de origem.</li>
-          <li>            (Int) Vertice de destino.</li>
+          <li>Argumentos: (Object) Grafo ou matriz de adjacencia.</li>
+          <li>            (Object) Vertice de origem.</li>
+          <li>            (Object) Vertice de destino.</li>
           <li>Retorno: (Number) Distancia encontrada.</li>
           <li>         (Table) Tabela de predecessores do caminho.</li>
         </ul>
@@ -833,13 +833,17 @@ print(resultado[1]); --> 1
 
 ```lua
 local Dijkstra = require("dijkstra");
-local matriz = {
-  {0, 1, 4},
-  {1, 0, 2},
-  {4, 2, 0}
-};
+local Grafo = require("grafo");
+local grafo = Grafo:new();
 
-local distancia = Dijkstra.dijkstra(matriz, 1, 3);
+grafo:addNo(1, "A");
+grafo:addNo(2, "B");
+grafo:addNo(3, "C");
+grafo:addEdge(1, 2, 1);
+grafo:addEdge(2, 3, 2);
+grafo:addEdge(1, 3, 4);
+
+local distancia = Dijkstra.dijkstra(grafo, 1, 3);
 print(distancia); --> 3
 ```
 <hr>
@@ -932,7 +936,7 @@ print(resultado[1]); --> 1
 <div>
   <h5>Informacoes</h5>
   <div>
-    <p>Algoritmo para identificacao de componentes fortemente conexas em grafos orientados.</p>
+    <p>Algoritmo para identificacao de componentes fortemente conexas em grafos orientados. Aceita a estrutura Grafo do repositorio ou uma lista de adjacencia.</p>
   </div>
   <h5>Metodos</h5>
   <div>
@@ -940,7 +944,7 @@ print(resultado[1]); --> 1
       <li><b>tarjan(grafo)</b>
         <ul>
           <li>Descricao: Funcao que calcula as componentes fortemente conexas de um grafo.</li>
-          <li>Argumentos: (Table) Lista de adjacencia do grafo.</li>
+          <li>Argumentos: (Object) Grafo ou lista de adjacencia do grafo.</li>
           <li>Retorno: (Table) Lista de componentes encontradas.</li>
         </ul>
       </li>
@@ -951,11 +955,17 @@ print(resultado[1]); --> 1
 
 ```lua
 local Tarjan = require("tarjan");
-local componentes = Tarjan.tarjan({
-  {2},
-  {1, 3},
-  {}
-});
+local Grafo = require("grafo");
+local grafo = Grafo:new();
+
+grafo:addNo(1, "A");
+grafo:addNo(2, "B");
+grafo:addNo(3, "C");
+grafo:addEdge(1, 2, 1);
+grafo:addEdge(2, 1, 1);
+grafo:addEdge(2, 3, 1);
+
+local componentes = Tarjan.tarjan(grafo);
 
 print(#componentes);
 ```
