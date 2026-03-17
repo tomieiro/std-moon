@@ -290,24 +290,6 @@ aux = nil;
 ```
 <hr>
 
-<h4>Mapa</h4>
-<div>
-  <h5>Informacoes</h5>
-  <div>
-    <p>...</p>
-  </div>
-  <h5>Metodos</h5>
-  <div>
-    <p>...</p>
-  </div>
-</div>
-<h5>Exemplo</h5>
-
-```lua
-require("Open");
-```
-<hr>
-
 <h4>Matriz</h4>
 <div>
   <h5>Informacoes</h5>

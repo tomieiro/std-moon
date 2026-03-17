@@ -10,22 +10,19 @@ end
 function hash_search(t, key, m)
 	local a = (math.sqrt(5)-1)/2.0;
     local pos;
-    local k = -1;
-	repeat
-		k = k + 1;
+    for k = 0, m - 1 do
 		pos = hash_multi(key, a, m, k);
-        if (k >= m or t[pos] == nil) then
-            break;
+        if (t[pos] == key) then
+            return pos;
+        end
+        if (t[pos] == nil) then
+            return -1;
         end
         if (t[pos] ~= key) then
             print("Colisao ", t[pos]);
         end
-    until (t[pos] ~= key);
-    if(t[pos] == key) then 
-        return pos;
-    else 
-        return -1;
     end
+    return -1;
 end
 
 --Definicao padrao dos atributos da Tabela Hash
@@ -97,9 +94,10 @@ end
 
 --Funcao que remove todos os elementos de uma tabela hash.
 function TabelaHash:clear()
-    for i=self.tamanho,1,-1 do
-        self:pop(i);
+    for i=1, self.m do
+        self.tabela[i] = nil;
     end
+    self.tamanho = 0;
     return;
 end
 
