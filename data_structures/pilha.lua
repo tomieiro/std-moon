@@ -30,7 +30,8 @@ end
 --return: (Object) Objeto removida da Pilha.
 function Pilha:pop()
     self._indexlast = self._indexlast - 1;
-    return table.remove(self.itens,self._indexlast + 1);
+    self.tamanho = self.tamanho - 1;
+    return table.remove(self.itens,self._indexlast);
 end
 
 --Metodo para liberar a Pilha

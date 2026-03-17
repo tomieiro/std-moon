@@ -9,3 +9,5 @@ function bubbleSort(arr)
     end
     return arr
 end
+
+return bubbleSort
