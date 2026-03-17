@@ -21,3 +21,5 @@ local function busca_binaria(array, valor)
   -- Caso o numero buscado nao seja encontrado, ou o tamanho do vetor seja 0
   return -1;
 end
+
+return busca_binaria;

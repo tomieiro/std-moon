@@ -6,13 +6,16 @@ Fila_Prioridade = {itens = {}, tamanho = 0, _indexfirst = 1, _indexlast = 1, com
 --return: (Object) Fila_Prioridade instanciada.
 function Fila_Prioridade:new(atributos, func)
     atributos = atributos or {};
-    setmetatable(atributos, self);
     self.__index = self;
     if(type(func) ~= "function") then
         error("Segundo parametro não é uma função.");
     end
-
-    self.comp_func = func;
+    atributos.itens = atributos.itens or {};
+    atributos.tamanho = atributos.tamanho or 0;
+    atributos._indexfirst = atributos._indexfirst or 1;
+    atributos._indexlast = atributos._indexlast or 1;
+    atributos.comp_func = func;
+    setmetatable(atributos, self);
 
     return atributos;
 end

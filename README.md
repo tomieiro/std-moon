@@ -10,7 +10,7 @@ Library to Lua Programming Language that aims to provide most used data structur
 <hr>
 <h3>Motivacao</h3>
 <p>Criar um repositorio independente e aberto com diversas estruturas de dados implementadas em Lua. A ideia do projeto consiste em expandir o repertorio da biblioteca atraves de contribuicoes externas.</p>
-<p>Os contribuidores e os respectivos arquivos quais contribuiram podem ser trackeados pelo item Contributors na página do GitHub.</p>
+<p>Os contribuidores do repositorio podem ser consultados no arquivo CONTRIBUTORS.</p>
 
 <hr>
 <h3>Contribuicao</h3>
@@ -31,17 +31,50 @@ local objeto = classe_estrutura:new()
 <div>
   <h5>Informacoes</h5>
   <div>
-    <p>...</p>
+    <p>Estrutura basica de arvore binaria de busca. Permite inserir, remover e imprimir elementos em ordem.</p>
   </div>
   <h5>Metodos</h5>
   <div>
-    <p>...</p>
+    <ul>
+      <li><b>Arvore:new(args)</b>
+        <ul>
+          <li>Descricao: Metodo construtor que instancia o objeto Arvore.</li>
+          <li>Argumentos: (Table) Atributos desejados para a Arvore.</li>
+          <li>Retorno: (Object) Arvore instanciada.</li>
+        </ul>
+      </li>
+      <li><b>Arvore:insert(elem)</b>
+        <ul>
+          <li>Descricao: Metodo insert que adiciona um elemento na arvore binaria.</li>
+          <li>Argumentos: (Object) Elemento desejado para incluir na arvore.</li>
+        </ul>
+      </li>
+      <li><b>Arvore:remove(elem)</b>
+        <ul>
+          <li>Descricao: Metodo remove que exclui um elemento da arvore binaria.</li>
+          <li>Argumentos: (Object) Elemento desejado para remover da arvore.</li>
+        </ul>
+      </li>
+      <li><b>Arvore:print()</b>
+        <ul>
+          <li>Descricao: Metodo que imprime os elementos da arvore em ordem.</li>
+        </ul>
+      </li>
+    </ul>
   </div>
 </div>
 <h5>Exemplo</h5>
 
 ```lua
-require("Open");
+local Arvore = require("arvore_binaria");
+local arvore = Arvore:new();
+
+arvore:insert(10);
+arvore:insert(5);
+arvore:insert(15);
+
+arvore:remove(5);
+arvore:print();
 ```
 <hr>
 
@@ -49,17 +82,43 @@ require("Open");
 <div>
   <h5>Informacoes</h5>
   <div>
-    <p>...</p>
+    <p>Estrutura balanceada de arvore binaria de busca. Mantem a altura controlada apos insercoes e remocoes internas.</p>
   </div>
   <h5>Metodos</h5>
   <div>
-    <p>...</p>
+    <ul>
+      <li><b>Arvore:new(args)</b>
+        <ul>
+          <li>Descricao: Metodo construtor que instancia o objeto Arvore AVL.</li>
+          <li>Argumentos: (Table) Atributos desejados para a Arvore AVL.</li>
+          <li>Retorno: (Object) Arvore AVL instanciada.</li>
+        </ul>
+      </li>
+      <li><b>Arvore:add(new_value)</b>
+        <ul>
+          <li>Descricao: Metodo add que insere um novo valor na arvore AVL.</li>
+          <li>Argumentos: (Object) Valor desejado para incluir na arvore.</li>
+        </ul>
+      </li>
+      <li><b>Arvore:print()</b>
+        <ul>
+          <li>Descricao: Metodo que imprime os elementos e alturas da arvore AVL em ordem.</li>
+        </ul>
+      </li>
+    </ul>
   </div>
 </div>
 <h5>Exemplo</h5>
 
 ```lua
-require("Open");
+local AVL = require("avl");
+local arvore = AVL:new();
+
+arvore:add(3);
+arvore:add(2);
+arvore:add(1);
+
+arvore:print();
 ```
 <hr>
 
@@ -67,17 +126,57 @@ require("Open");
 <div>
   <h5>Informacoes</h5>
   <div>
-    <p>...</p>
+    <p>Estrutura basica de fila de prioridade. A ordenacao dos elementos e controlada por uma funcao de comparacao informada na criacao.</p>
   </div>
   <h5>Metodos</h5>
   <div>
-    <p>...</p>
+    <ul>
+      <li><b>Fila_Prioridade:new(args, func)</b>
+        <ul>
+          <li>Descricao: Metodo construtor que instancia o objeto Fila_Prioridade.</li>
+          <li>Argumentos: (Table) Atributos desejados para a Fila_Prioridade.</li>
+          <li>            (Function) Funcao de comparacao entre os elementos.</li>
+          <li>Retorno: (Object) Fila_Prioridade instanciada.</li>
+        </ul>
+      </li>
+      <li><b>Fila_Prioridade:push(objeto)</b>
+        <ul>
+          <li>Descricao: Metodo push que insere um objeto na fila de prioridade.</li>
+          <li>Argumentos: (Object) Objeto desejado para incluir na fila.</li>
+        </ul>
+      </li>
+      <li><b>Fila_Prioridade:pop()</b>
+        <ul>
+          <li>Descricao: Metodo pop que remove o objeto com maior prioridade.</li>
+          <li>Retorno: (Object) Objeto removido da fila.</li>
+        </ul>
+      </li>
+      <li><b>Fila_Prioridade:print()</b>
+        <ul>
+          <li>Descricao: Funcao que printa toda a fila.</li>
+        </ul>
+      </li>
+      <li><b>Fila_Prioridade:free()</b>
+        <ul>
+          <li>Descricao: Metodo para liberar a fila de prioridade.</li>
+        </ul>
+      </li>
+    </ul>
   </div>
 </div>
 <h5>Exemplo</h5>
 
 ```lua
-require("Open");
+local Fila_Prioridade = require("fila_prioridade");
+local fila = Fila_Prioridade:new({}, function(a, b)
+  return a < b;
+end);
+
+fila:push(3);
+fila:push(1);
+fila:push(2);
+
+print(fila:pop()); --> 1
 ```
 <hr>
 
@@ -116,7 +215,7 @@ require("Open");
         </ul>
       </li>
     </ul>
-    <p>...</p>
+    <p>Implementacao pronta para operacoes basicas de insercao, remocao, leitura e liberacao da estrutura.</p>
   </div>
 </div>
 <h4>Exemplo</h4>
@@ -142,17 +241,78 @@ nova_fila = nil;
 <div>
   <h5>Informacoes</h5>
   <div>
-    <p>...</p>
+    <p>Estrutura basica de grafo orientado com pesos nas arestas. Cada no armazena valor e lista de adjacencia.</p>
   </div>
   <h5>Metodos</h5>
   <div>
-    <p>...</p>
+    <ul>
+      <li><b>Grafo:new(args)</b>
+        <ul>
+          <li>Descricao: Metodo construtor que instancia o objeto Grafo.</li>
+          <li>Argumentos: (Table) Atributos desejados para o Grafo.</li>
+          <li>Retorno: (Object) Grafo instanciado.</li>
+        </ul>
+      </li>
+      <li><b>Grafo:addNo(index, valor)</b>
+        <ul>
+          <li>Descricao: Metodo que adiciona um novo no no grafo.</li>
+          <li>Argumentos: (Object) Identificador do no.</li>
+          <li>            (Object) Valor armazenado no no.</li>
+        </ul>
+      </li>
+      <li><b>Grafo:removeNo(index)</b>
+        <ul>
+          <li>Descricao: Metodo que remove um no do grafo.</li>
+          <li>Argumentos: (Object) Identificador do no.</li>
+        </ul>
+      </li>
+      <li><b>Grafo:addEdge(src, dest, peso)</b>
+        <ul>
+          <li>Descricao: Metodo que adiciona uma aresta entre dois nos.</li>
+          <li>Argumentos: (Object) No de origem.</li>
+          <li>            (Object) No de destino.</li>
+          <li>            (Number) Peso da aresta.</li>
+        </ul>
+      </li>
+      <li><b>Grafo:removeEdge(src, dest)</b>
+        <ul>
+          <li>Descricao: Metodo que remove uma aresta entre dois nos.</li>
+          <li>Argumentos: (Object) No de origem.</li>
+          <li>            (Object) No de destino.</li>
+        </ul>
+      </li>
+      <li><b>Grafo:printAdjacent(index)</b>
+        <ul>
+          <li>Descricao: Metodo que imprime a lista de adjacencia de um no.</li>
+          <li>Argumentos: (Object) Identificador do no.</li>
+        </ul>
+      </li>
+      <li><b>Grafo:print()</b>
+        <ul>
+          <li>Descricao: Metodo que imprime todos os nos e suas adjacencias.</li>
+        </ul>
+      </li>
+      <li><b>Grafo:getValor(index)</b>
+        <ul>
+          <li>Descricao: Metodo que retorna o valor armazenado em um no.</li>
+          <li>Argumentos: (Object) Identificador do no.</li>
+          <li>Retorno: (Object) Valor armazenado no no.</li>
+        </ul>
+      </li>
+    </ul>
   </div>
 </div>
 <h5>Exemplo</h5>
 
 ```lua
-require("Open");
+local Grafo = require("grafo");
+local grafo = Grafo:new();
+
+grafo:addNo(1, "A");
+grafo:addNo(2, "B");
+grafo:addEdge(1, 2, 5);
+
+grafo:print();
 ```
 <hr>
 
@@ -160,17 +320,57 @@ require("Open");
 <div>
   <h5>Informacoes</h5>
   <div>
-    <p>...</p>
+    <p>Tabela hash simples para armazenamento de numeros inteiros, com insercao, remocao, busca interna e limpeza da estrutura.</p>
   </div>
   <h5>Metodos</h5>
   <div>
-    <p>...</p>
+    <ul>
+      <li><b>TabelaHash:new(args)</b>
+        <ul>
+          <li>Descricao: Metodo construtor que instancia o objeto TabelaHash.</li>
+          <li>Argumentos: (Table) Atributos desejados para a TabelaHash.</li>
+          <li>Retorno: (Object) TabelaHash instanciada.</li>
+        </ul>
+      </li>
+      <li><b>TabelaHash:insert(key)</b>
+        <ul>
+          <li>Descricao: Metodo insert que adiciona uma chave na tabela hash.</li>
+          <li>Argumentos: (Number) Chave desejada para incluir.</li>
+        </ul>
+      </li>
+      <li><b>TabelaHash:remove(key)</b>
+        <ul>
+          <li>Descricao: Metodo remove que exclui uma chave da tabela hash.</li>
+          <li>Argumentos: (Number) Chave desejada para remover.</li>
+        </ul>
+      </li>
+      <li><b>TabelaHash:clear()</b>
+        <ul>
+          <li>Descricao: Funcao que remove todos os elementos da tabela hash.</li>
+        </ul>
+      </li>
+      <li><b>TabelaHash:print()</b>
+        <ul>
+          <li>Descricao: Funcao que printa os elementos armazenados e suas posicoes.</li>
+        </ul>
+      </li>
+      <li><b>TabelaHash:free()</b>
+        <ul>
+          <li>Descricao: Metodo para liberar a tabela hash.</li>
+        </ul>
+      </li>
+    </ul>
   </div>
 </div>
 <h5>Exemplo</h5>
 
 ```lua
-require("Open");
+local TabelaHash = require("hash");
+local hash = TabelaHash:new({m = 10});
+
+hash:insert(10);
+hash:insert(20);
+hash:print();
 ```
 <hr>
 
@@ -290,39 +490,81 @@ aux = nil;
 ```
 <hr>
 
-<h4>Mapa</h4>
-<div>
-  <h5>Informacoes</h5>
-  <div>
-    <p>...</p>
-  </div>
-  <h5>Metodos</h5>
-  <div>
-    <p>...</p>
-  </div>
-</div>
-<h5>Exemplo</h5>
-
-```lua
-require("Open");
-```
-<hr>
-
 <h4>Matriz</h4>
 <div>
   <h5>Informacoes</h5>
   <div>
-    <p>...</p>
+    <p>Estrutura basica de matriz com acesso por linha, coluna e posicao, alem de suporte a troca de elementos.</p>
   </div>
   <h5>Metodos</h5>
   <div>
-    <p>...</p>
+    <ul>
+      <li><b>Matriz:new(args, rows, cols)</b>
+        <ul>
+          <li>Descricao: Metodo construtor que instancia o objeto Matriz.</li>
+          <li>Argumentos: (Table) Atributos desejados para a Matriz.</li>
+          <li>            (Int) Quantidade de linhas.</li>
+          <li>            (Int) Quantidade de colunas.</li>
+          <li>Retorno: (Object) Matriz instanciada.</li>
+        </ul>
+      </li>
+      <li><b>Matriz:getLine(line)</b>
+        <ul>
+          <li>Descricao: Metodo que retorna uma linha da matriz.</li>
+          <li>Argumentos: (Int) Linha desejada.</li>
+          <li>Retorno: (Table) Linha requisitada.</li>
+        </ul>
+      </li>
+      <li><b>Matriz:getCol(col)</b>
+        <ul>
+          <li>Descricao: Metodo que retorna uma coluna da matriz.</li>
+          <li>Argumentos: (Int) Coluna desejada.</li>
+          <li>Retorno: (Table) Coluna requisitada.</li>
+        </ul>
+      </li>
+      <li><b>Matriz:swap(first_row, first_col, second_row, second_col)</b>
+        <ul>
+          <li>Descricao: Metodo que troca dois elementos da matriz.</li>
+          <li>Argumentos: (Int) Linha do primeiro elemento.</li>
+          <li>            (Int) Coluna do primeiro elemento.</li>
+          <li>            (Int) Linha do segundo elemento.</li>
+          <li>            (Int) Coluna do segundo elemento.</li>
+        </ul>
+      </li>
+      <li><b>Matriz:getPos(row, col)</b>
+        <ul>
+          <li>Descricao: Metodo que retorna o elemento de uma posicao da matriz.</li>
+          <li>Argumentos: (Int) Linha desejada.</li>
+          <li>            (Int) Coluna desejada.</li>
+          <li>Retorno: (Object) Elemento da posicao.</li>
+        </ul>
+      </li>
+      <li><b>Matriz:setPos(item, row, col)</b>
+        <ul>
+          <li>Descricao: Metodo que atribui um elemento em uma posicao da matriz.</li>
+          <li>Argumentos: (Object) Item desejado.</li>
+          <li>            (Int) Linha desejada.</li>
+          <li>            (Int) Coluna desejada.</li>
+        </ul>
+      </li>
+      <li><b>Matriz:free()</b>
+        <ul>
+          <li>Descricao: Metodo para liberar a Matriz.</li>
+        </ul>
+      </li>
+    </ul>
   </div>
 </div>
 <h5>Exemplo</h5>
 
 ```lua
-require("Open");
+local Matriz = require("matriz");
+local matriz = Matriz:new({}, 2, 2);
+
+matriz:setPos(10, 1, 1);
+matriz:setPos(20, 1, 2);
+
+print(matriz:getPos(1, 2)); --> 20
 ```
 <hr>
 
@@ -467,7 +709,7 @@ nova_pilha = nil;
         </ul>
       </li>
     </ul>
-    <p>...</p>
+    <p>Implementacao pronta para acesso por indice, iteracao simples e troca de conteudo da estrutura.</p>
   </div>
 </div>
 <h5>Exemplo</h5>
@@ -508,7 +750,214 @@ aux = nil;
 
 <hr>
 <h3>Documentacao - Algoritmos</h3>
-<h4>Quick</h4>
-...
+<h4>Busca Binaria</h4>
+<div>
+  <h5>Informacoes</h5>
+  <div>
+    <p>Algoritmo de busca em vetor ordenado. Retorna a posicao do valor buscado ou -1 quando o valor nao existe.</p>
+  </div>
+  <h5>Metodos</h5>
+  <div>
+    <ul>
+      <li><b>busca_binaria(array, valor)</b>
+        <ul>
+          <li>Descricao: Funcao que realiza busca binaria em um vetor ordenado.</li>
+          <li>Argumentos: (Table) Vetor ordenado para consulta.</li>
+          <li>            (Object) Valor desejado.</li>
+          <li>Retorno: (Int) Posicao encontrada ou -1.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+<h5>Exemplo</h5>
+
+```lua
+local busca_binaria = require("binarysearch");
+local pos = busca_binaria({1, 3, 5, 7}, 5);
+print(pos); --> 3
+```
+<hr>
+
+<h4>Bubble Sort</h4>
+<div>
+  <h5>Informacoes</h5>
+  <div>
+    <p>Algoritmo de ordenacao simples baseado em trocas sucessivas entre elementos adjacentes.</p>
+  </div>
+  <h5>Metodos</h5>
+  <div>
+    <ul>
+      <li><b>bubbleSort(arr)</b>
+        <ul>
+          <li>Descricao: Funcao que ordena um vetor em ordem crescente.</li>
+          <li>Argumentos: (Table) Vetor desejado para ordenacao.</li>
+          <li>Retorno: (Table) Vetor ordenado.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+<h5>Exemplo</h5>
+
+```lua
+local bubbleSort = require("bubblesort");
+local resultado = bubbleSort({5, 4, 3, 2, 1});
+print(resultado[1]); --> 1
+```
+<hr>
+
+<h4>Dijkstra</h4>
+<div>
+  <h5>Informacoes</h5>
+  <div>
+    <p>Algoritmo para caminho minimo em grafos ponderados sem pesos negativos, usando matriz de adjacencia.</p>
+  </div>
+  <h5>Metodos</h5>
+  <div>
+    <ul>
+      <li><b>dijkstra(matriz, de, para)</b>
+        <ul>
+          <li>Descricao: Funcao que calcula a menor distancia entre dois vertices.</li>
+          <li>Argumentos: (Table) Matriz de adjacencia.</li>
+          <li>            (Int) Vertice de origem.</li>
+          <li>            (Int) Vertice de destino.</li>
+          <li>Retorno: (Number) Distancia encontrada.</li>
+          <li>         (Table) Tabela de predecessores do caminho.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+<h5>Exemplo</h5>
+
+```lua
+local Dijkstra = require("dijkstra");
+local matriz = {
+  {0, 1, 4},
+  {1, 0, 2},
+  {4, 2, 0}
+};
+
+local distancia = Dijkstra.dijkstra(matriz, 1, 3);
+print(distancia); --> 3
+```
+<hr>
+
+<h4>Insertion Sort</h4>
+<div>
+  <h5>Informacoes</h5>
+  <div>
+    <p>Algoritmo de ordenacao por insercao que organiza os elementos no proprio vetor.</p>
+  </div>
+  <h5>Metodos</h5>
+  <div>
+    <ul>
+      <li><b>insertionsort(tabela)</b>
+        <ul>
+          <li>Descricao: Funcao que ordena um vetor em ordem crescente.</li>
+          <li>Argumentos: (Table) Vetor desejado para ordenacao.</li>
+          <li>Retorno: (Table) Vetor ordenado.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+<h5>Exemplo</h5>
+
+```lua
+local insertionsort = require("insertionsort");
+local resultado = insertionsort({4, 2, 3, 1});
+print(resultado[1]); --> 1
+```
+<hr>
+
+<h4>Merge Sort</h4>
+<div>
+  <h5>Informacoes</h5>
+  <div>
+    <p>Algoritmo de ordenacao por intercalação que divide o vetor em partes menores e depois recombina os resultados.</p>
+  </div>
+  <h5>Metodos</h5>
+  <div>
+    <ul>
+      <li><b>mergeSort(vetor)</b>
+        <ul>
+          <li>Descricao: Funcao que ordena um vetor por intercalação.</li>
+          <li>Argumentos: (Table) Vetor desejado para ordenacao.</li>
+          <li>Retorno: (Table) Vetor ordenado.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+<h5>Exemplo</h5>
+
+```lua
+local MergeSort = require("mergesort");
+local resultado = MergeSort.mergeSort({4, 1, 3, 2});
+print(resultado[1]); --> 1
+```
+<hr>
+
+<h4>Quick Sort</h4>
+<div>
+  <h5>Informacoes</h5>
+  <div>
+    <p>Algoritmo de ordenacao que escolhe um pivo e particiona o vetor em elementos menores e maiores.</p>
+  </div>
+  <h5>Metodos</h5>
+  <div>
+    <ul>
+      <li><b>quicksort(tabela)</b>
+        <ul>
+          <li>Descricao: Funcao que ordena um vetor em ordem crescente.</li>
+          <li>Argumentos: (Table) Vetor desejado para ordenacao.</li>
+          <li>Retorno: (Table) Novo vetor ordenado.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+<h5>Exemplo</h5>
+
+```lua
+local quicksort = require("quicksort");
+local resultado = quicksort({4, 2, 3, 1});
+print(resultado[1]); --> 1
+```
+<hr>
+
+<h4>Tarjan</h4>
+<div>
+  <h5>Informacoes</h5>
+  <div>
+    <p>Algoritmo para identificacao de componentes fortemente conexas em grafos orientados.</p>
+  </div>
+  <h5>Metodos</h5>
+  <div>
+    <ul>
+      <li><b>tarjan(grafo)</b>
+        <ul>
+          <li>Descricao: Funcao que calcula as componentes fortemente conexas de um grafo.</li>
+          <li>Argumentos: (Table) Lista de adjacencia do grafo.</li>
+          <li>Retorno: (Table) Lista de componentes encontradas.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+<h5>Exemplo</h5>
+
+```lua
+local Tarjan = require("tarjan");
+local componentes = Tarjan.tarjan({
+  {2},
+  {1, 3},
+  {}
+});
+
+print(#componentes);
+```
 
 Este projeto está em desenvolvimento...

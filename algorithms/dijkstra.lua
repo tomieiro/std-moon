@@ -1,11 +1,11 @@
 local M = {}
 
--- Calcula, pelo algoritmo de Djikistra, o caminho mais curto entre de e para
+-- Calcula, pelo algoritmo de Dijkstra, o caminho mais curto entre de e para
 -- @param matriz: lista de adjacência
 -- @param de: vertice de origem
 -- @param para: vertice de destino
 -- @return: distancia mais curta e lista de vertices que formam o caminho mais curto
-function M.djikstra(matriz, de, para)
+function M.dijkstra(matriz, de, para)
     if type(matriz) ~= "table" then
         error("Matriz invalida para busca do menor caminho.")
     end
@@ -80,4 +80,3 @@ function M.extractMin(Q, dist)
 end
 
 return M
- 
