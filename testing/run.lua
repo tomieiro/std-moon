@@ -3,7 +3,7 @@ package.path = "./?.lua;" .. package.path
 local algorithm_tests = {
     "testing/algorithms/binarysearch.lua",
     "testing/algorithms/bubblesort.lua",
-    "testing/algorithms/djikstra.lua",
+    "testing/algorithms/dijkstra.lua",
     "testing/algorithms/insertionsort.lua",
     "testing/algorithms/mergesort.lua",
     "testing/algorithms/quicksort.lua",
